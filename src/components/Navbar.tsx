@@ -39,19 +39,19 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Logo with smooth home scroll */}
+        <div className="flex items-center justify-between gap-3 relative">
+          {/* Logo with smooth home scroll - High z-index & flex-shrink-0 so it never goes under navigation */}
           <a
             href="#hero"
             onClick={(e) => scrollToSection(e, '#hero')}
             aria-label="NEXUS Home"
-            className="flex items-center"
+            className="flex items-center flex-shrink-0 relative z-20 min-w-max"
           >
             <BrandLogo size="md" variant="light" />
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 flex-nowrap min-w-0 text-center relative z-10">
             {SITE_CONFIG.navigation.map((item) => {
               const isActive = activeSection === item.href.replace('#', '');
               return (
@@ -59,15 +59,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                   key={item.label}
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
-                  className={`relative px-3.5 py-2 text-xs uppercase tracking-[0.18em] font-medium transition-colors duration-200 ${
+                  className={`relative px-2 xl:px-2.5 py-1.5 text-[11px] xl:text-xs uppercase tracking-wider font-medium transition-colors duration-200 whitespace-nowrap text-center inline-flex items-center justify-center ${
                     isActive
                       ? 'text-[#1F4FA3] font-semibold'
                       : 'text-[#5B6B85] hover:text-[#0B1F4D]'
                   }`}
                 >
-                  {item.label}
+                  <span className="whitespace-nowrap">{item.label}</span>
                   {isActive && (
-                    <span className="absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-gradient-to-r from-[#1F4FA3] to-[#5BB8F5] rounded-full" />
+                    <span className="absolute bottom-0 left-1.5 right-1.5 xl:left-2.5 xl:right-2.5 h-[2px] bg-gradient-to-r from-[#1F4FA3] to-[#5BB8F5] rounded-full" />
                   )}
                 </a>
               );
@@ -75,23 +75,23 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           </nav>
 
           {/* Desktop Direct Contact & CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-2.5 flex-shrink-0">
             <a
               href={`tel:${SITE_CONFIG.contact.phone}`}
-              className="flex items-center gap-2 text-xs tracking-wider text-[#0B1F4D] hover:text-[#1F4FA3] transition-colors py-1.5 px-3 rounded-full hover:bg-[#5BB8F5]/10"
-              title="Call official direct line"
+              className="flex items-center justify-center w-9 h-9 rounded-full text-[#1F4FA3] bg-[#5BB8F5]/10 hover:bg-[#1F4FA3] hover:text-white border border-[#1F4FA3]/15 transition-all duration-200 shadow-sm flex-shrink-0"
+              title={`Call official direct line: ${SITE_CONFIG.contact.phoneFormatted}`}
+              aria-label={`Call official direct line: ${SITE_CONFIG.contact.phoneFormatted}`}
             >
-              <Phone className="w-3.5 h-3.5 text-[#1F4FA3]" />
-              <span className="font-medium font-mono">{SITE_CONFIG.contact.phoneFormatted}</span>
+              <Phone className="w-4 h-4 flex-shrink-0" />
             </a>
 
             <a
               href="#contact"
               onClick={(e) => scrollToSection(e, '#contact')}
-              className="relative group overflow-hidden px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0B1F4D] to-[#1F4FA3] text-white text-xs uppercase tracking-[0.16em] font-medium shadow-[0_4px_15px_rgba(11,31,77,0.2)] hover:shadow-[0_6px_20px_rgba(31,79,163,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center gap-2"
+              className="relative group overflow-hidden px-4 xl:px-5 py-2 xl:py-2.5 rounded-full bg-gradient-to-r from-[#0B1F4D] to-[#1F4FA3] text-white text-xs uppercase tracking-wider xl:tracking-[0.16em] font-medium shadow-[0_4px_15px_rgba(11,31,77,0.2)] hover:shadow-[0_6px_20px_rgba(31,79,163,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center gap-1.5 xl:gap-2 whitespace-nowrap flex-shrink-0"
             >
-              <span>Consult Now</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              <span className="whitespace-nowrap">Consult Now</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
             </a>
           </div>
 

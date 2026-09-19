@@ -18,11 +18,11 @@ export const HowItWorksSection: React.FC = () => {
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#0B1F4D] tracking-tight mb-4">
+          <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#0B1F4D] tracking-tight mb-4 break-words">
             How We Secure Your Visa &amp; Travel
           </h2>
 
-          <p className="text-sm sm:text-base text-[#5B6B85] font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-[#5B6B85] font-light leading-relaxed break-words">
             A transparent 4-stage roadmap eliminating guesswork, administrative delay, and embassy scrutiny bottlenecks.
           </p>
         </div>
@@ -32,7 +32,7 @@ export const HowItWorksSection: React.FC = () => {
           {/* Horizontal connecting hairline line (Desktop) */}
           <div className="hidden lg:block absolute top-1/2 -translate-y-12 left-12 right-12 h-[2px] bg-gradient-to-r from-[#0B1F4D]/15 via-[#1F4FA3]/40 to-[#5BB8F5] -z-0" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 relative z-10">
             {SITE_CONFIG.steps.map((item, idx) => {
               const Icon = stepIcons[idx % stepIcons.length];
 
@@ -40,7 +40,7 @@ export const HowItWorksSection: React.FC = () => {
                 <div
                   key={item.step}
                   id={`step-${item.step}`}
-                  className="group relative bg-white/90 backdrop-blur-md rounded-2xl p-7 border border-[#0B1F4D]/8 shadow-[0_4px_20px_rgba(11,31,77,0.03)] hover:shadow-[0_12px_30px_rgba(31,79,163,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                  className="group relative bg-white/90 backdrop-blur-md rounded-2xl p-5 sm:p-7 border border-[#0B1F4D]/8 shadow-[0_4px_20px_rgba(11,31,77,0.03)] hover:shadow-[0_12px_30px_rgba(31,79,163,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-w-0"
                 >
                   <div>
                     {/* Step badge & Icon */}
@@ -49,7 +49,7 @@ export const HowItWorksSection: React.FC = () => {
                         {item.step}
                       </span>
 
-                      <div className="w-12 h-12 rounded-xl bg-[#F0F6FD] text-[#1F4FA3] group-hover:bg-[#1F4FA3] group-hover:text-white transition-colors duration-300 flex items-center justify-center shadow-inner">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#F0F6FD] text-[#1F4FA3] group-hover:bg-[#1F4FA3] group-hover:text-white transition-colors duration-300 flex items-center justify-center shadow-inner flex-shrink-0">
                         <Icon className="w-5 h-5" />
                       </div>
                     </div>
@@ -60,19 +60,19 @@ export const HowItWorksSection: React.FC = () => {
                     </span>
 
                     {/* Step Title */}
-                    <h3 className="font-serif text-xl font-medium text-[#0B1F4D] mb-2 leading-snug">
+                    <h3 className="font-serif text-lg sm:text-xl font-medium text-[#0B1F4D] mb-2 leading-snug break-words">
                       {item.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-xs text-[#5B6B85] font-light leading-relaxed mb-4">
+                    <p className="text-xs text-[#5B6B85] font-light leading-relaxed mb-4 break-words">
                       {item.desc}
                     </p>
                   </div>
 
                   {/* Detail sub-point */}
                   <div className="pt-4 border-t border-slate-100">
-                    <p className="text-[11px] text-[#0B1F4D]/75 italic">
+                    <p className="text-[11px] text-[#0B1F4D]/75 italic break-words">
                       💡 {item.detail}
                     </p>
                   </div>
@@ -86,7 +86,7 @@ export const HowItWorksSection: React.FC = () => {
         <div className="mt-16 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-[#0B1F4D] hover:bg-[#1F4FA3] text-white text-xs uppercase tracking-widest font-medium shadow-md transition-all"
+            className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 rounded-full bg-[#0B1F4D] hover:bg-[#1F4FA3] text-white text-xs uppercase tracking-wider sm:tracking-widest font-medium shadow-md transition-all max-w-full text-center"
           >
             <span>Initiate Step 01 Today</span>
             <ArrowRight className="w-4 h-4" />

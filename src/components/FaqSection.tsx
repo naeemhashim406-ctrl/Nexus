@@ -50,9 +50,9 @@ export const FaqSection: React.FC = () => {
                   onClick={() => toggleFaq(faq.id)}
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${faq.id}`}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 transition-colors"
+                  className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 sm:gap-4 transition-colors min-w-0"
                 >
-                  <span className="font-serif text-lg sm:text-xl font-medium text-[#0B1F4D]">
+                  <span className="font-serif text-base sm:text-xl font-medium text-[#0B1F4D] break-words">
                     {faq.question}
                   </span>
                   <div
@@ -69,7 +69,7 @@ export const FaqSection: React.FC = () => {
                 {isOpen && (
                   <div
                     id={`faq-answer-${faq.id}`}
-                    className="px-6 pb-6 pt-1 text-sm sm:text-base text-[#5B6B85] font-light leading-relaxed border-t border-slate-100 animate-fade-in"
+                    className="px-4 sm:px-6 pb-5 sm:pb-6 pt-2 text-xs sm:text-base text-[#5B6B85] font-light leading-relaxed border-t border-slate-100 animate-fade-in break-words"
                   >
                     {faq.answer}
                   </div>
@@ -80,12 +80,12 @@ export const FaqSection: React.FC = () => {
         </div>
 
         {/* Still have questions helper box */}
-        <div className="mt-12 p-6 rounded-2xl bg-[#EBF3FC] border border-[#1F4FA3]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div>
-            <h4 className="font-serif text-lg font-medium text-[#0B1F4D]">
+        <div className="mt-12 p-5 sm:p-6 rounded-2xl bg-[#EBF3FC] border border-[#1F4FA3]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="min-w-0">
+            <h4 className="font-serif text-base sm:text-lg font-medium text-[#0B1F4D] break-words">
               Have a specific consular circumstance?
             </h4>
-            <p className="text-xs text-[#5B6B85] mt-0.5">
+            <p className="text-xs text-[#5B6B85] mt-0.5 break-words">
               Chat directly with our senior visa officers on WhatsApp for rapid clarification.
             </p>
           </div>
@@ -96,7 +96,7 @@ export const FaqSection: React.FC = () => {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-full bg-[#0B1F4D] hover:bg-[#1F4FA3] text-white text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-colors shadow-sm flex items-center gap-2"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-full bg-[#0B1F4D] hover:bg-[#1F4FA3] text-white text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-colors shadow-sm flex items-center justify-center gap-2 flex-shrink-0"
           >
             <MessageSquare className="w-4 h-4 text-[#5BB8F5]" />
             <span>Ask On WhatsApp</span>

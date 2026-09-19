@@ -247,9 +247,9 @@ export const ThreeGlobe: React.FC<ThreeGlobeProps> = ({
     const scene = new THREE.Scene();
     sceneRef.current = scene;
 
-    // 2. Setup Camera
+    // 2. Setup Camera with ample breathing room to prevent edge cropping on mobile
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.z = size === 'hero' ? 6.8 : 5.8;
+    camera.position.z = size === 'hero' ? 7.4 : 6.4;
     cameraRef.current = camera;
 
     // 3. Setup WebGL Renderer with capped pixel ratio
@@ -261,6 +261,10 @@ export const ThreeGlobe: React.FC<ThreeGlobeProps> = ({
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
     renderer.setClearColor(0x000000, 0);
+    renderer.domElement.style.display = 'block';
+    renderer.domElement.style.width = '100%';
+    renderer.domElement.style.height = '100%';
+    renderer.domElement.style.outline = 'none';
     container.innerHTML = '';
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
@@ -315,31 +319,7 @@ export const ThreeGlobe: React.FC<ThreeGlobeProps> = ({
     globeGroup.add(cloudMesh);
     cloudMeshRef.current = cloudMesh;
 
-    // 8. ATMOSPHERIC RAYLEIGH SCATTERING GLOW (Outer Blue Atmospheric Rim)
-    const atmosphereGeo = new THREE.SphereGeometry(globeRadius * 1.14, 48, 48);
-    const atmosphereMat = new THREE.ShaderMaterial({
-      vertexShader: `
-        varying vec3 vNormal;
-        void main() {
-          vNormal = normalize(normalMatrix * normal);
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        varying vec3 vNormal;
-        void main() {
-          float intensity = pow(0.68 - dot(vNormal, vec3(0, 0, 1.0)), 2.0);
-          gl_FragColor = vec4(0.36, 0.72, 0.96, 1.0) * intensity;
-        }
-      `,
-      blending: THREE.AdditiveBlending,
-      side: THREE.BackSide,
-      transparent: true,
-    });
-    const atmosphereMesh = new THREE.Mesh(atmosphereGeo, atmosphereMat);
-    scene.add(atmosphereMesh);
-
-    // 9. UPGRADE TEXTURES: Load High-Resolution NASA Satellite Imagery from Fast CDN
+    // 8. UPGRADE TEXTURES: Load High-Resolution NASA Satellite Imagery from Fast CDN
     const textureLoader = new THREE.TextureLoader();
     textureLoader.crossOrigin = 'anonymous';
 
@@ -528,20 +508,25 @@ export const ThreeGlobe: React.FC<ThreeGlobeProps> = ({
 
     animFrameIdRef.current = requestAnimationFrame(animate);
 
-    // Resize handler
+    // Resize handler with ResizeObserver
     const handleResize = () => {
       if (!container || !renderer || !camera) return;
-      const w = container.clientWidth;
-      const h = container.clientHeight;
+      const w = container.clientWidth || 300;
+      const h = container.clientHeight || 300;
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
     };
 
     window.addEventListener('resize', handleResize);
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize();
+    });
+    resizeObserver.observe(container);
 
     return () => {
       observer.disconnect();
+      resizeObserver.disconnect();
       window.removeEventListener('resize', handleResize);
       if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
       if (renderer.domElement && renderer.domElement.parentNode) {
@@ -597,7 +582,7 @@ export const ThreeGlobe: React.FC<ThreeGlobeProps> = ({
     >
       <div
         ref={containerRef}
-        className="w-full h-full cursor-grab active:cursor-grabbing touch-none flex items-center justify-center drop-shadow-[0_20px_50px_rgba(11,31,77,0.25)]"
+        className="w-full h-full cursor-grab active:cursor-grabbing touch-none flex items-center justify-center overflow-visible"
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
@@ -607,10 +592,10 @@ export const ThreeGlobe: React.FC<ThreeGlobeProps> = ({
 
       {/* Floating control badge */}
       {interactive && (
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none transition-opacity duration-300">
-          <div className="glass-panel px-3.5 py-1.5 rounded-full flex items-center gap-2 border border-white/60 text-[11px] text-[#0B1F4D] shadow-sm whitespace-nowrap">
-            <span className="w-2 h-2 rounded-full bg-[#5BB8F5] animate-pulse" />
-            <span className="font-medium">
+        <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 pointer-events-none transition-opacity duration-300 max-w-[92vw]">
+          <div className="glass-panel px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full flex items-center gap-2 border border-white/60 text-[10px] sm:text-[11px] text-[#0B1F4D] shadow-sm whitespace-nowrap">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#5BB8F5] animate-pulse flex-shrink-0" />
+            <span className="font-medium truncate">
               {activeCountryName ? `Target: ${activeCountryName}` : 'Interactive 3D Earth • Drag to rotate'}
             </span>
           </div>

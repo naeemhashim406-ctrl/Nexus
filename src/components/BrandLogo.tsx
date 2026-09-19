@@ -28,7 +28,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   return (
     <div
       onClick={onClick}
-      className={`inline-flex items-center gap-3.5 select-none transition-all ${
+      className={`inline-flex items-center gap-2.5 sm:gap-3.5 select-none transition-all flex-shrink-0 relative z-20 ${
         onClick ? 'cursor-pointer' : ''
       } ${className}`}
       aria-label="NEXUS Global Travel & Visa Solutions"
@@ -109,18 +109,17 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       </div>
 
       {/* Wordmark & Subline */}
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center min-w-0">
         <div
-          className={`font-sans tracking-[0.24em] font-light leading-none ${dimensions.title} ${
+          className={`font-sans tracking-[0.2em] sm:tracking-[0.24em] font-light leading-none ${dimensions.title} ${
             isDark ? 'text-white' : 'text-[#0B1F4D]'
           }`}
-          style={{ letterSpacing: '0.24em' }}
         >
           NEXUS
         </div>
         {showSubline && (
           <span
-            className={`tracking-[0.22em] font-medium uppercase mt-1 leading-tight ${dimensions.sub} ${
+            className={`tracking-[0.12em] sm:tracking-[0.2em] font-medium uppercase mt-1 leading-tight whitespace-nowrap overflow-hidden text-ellipsis max-w-[170px] xs:max-w-[210px] sm:max-w-none ${dimensions.sub} ${
               isDark ? 'text-[#8DBCE2]' : 'text-[#5B6B85]'
             }`}
           >

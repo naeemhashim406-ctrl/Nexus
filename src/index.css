@@ -19,15 +19,24 @@
   --nexus-ice: #F4F8FD;
 }
 
+html,
 body {
   font-family: var(--font-sans);
   background-color: #F8FAFD;
   color: #0B1F4D;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
-h1, h2, h3, .font-display {
+/* Prevent accidental child overflow */
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, .font-display {
   font-family: var(--font-serif);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Custom delicate scrollbar */

@@ -43,8 +43,8 @@ export const DestinationsSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Sticky 3D Globe on Desktop */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 flex flex-col items-center">
-            <div className="w-full max-w-[420px] aspect-square relative flex items-center justify-center bg-gradient-to-b from-[#F0F6FD] to-[#FFFFFF] rounded-3xl p-4 border border-[#0B1F4D]/8 shadow-[0_10px_35px_rgba(11,31,77,0.05)]">
+          <div className="lg:col-span-5 lg:sticky lg:top-28 flex flex-col items-center w-full min-w-0">
+            <div className="w-full max-w-[320px] xs:max-w-[360px] sm:max-w-[420px] aspect-square relative flex items-center justify-center bg-gradient-to-b from-[#F0F6FD]/90 to-[#FFFFFF] rounded-3xl p-2 sm:p-4 border border-[#0B1F4D]/8 shadow-[0_10px_35px_rgba(11,31,77,0.04)] overflow-visible">
               <ThreeGlobe
                 selectedLocation={{
                   lat: selectedDest.lat,
@@ -78,23 +78,23 @@ export const DestinationsSection: React.FC = () => {
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-xs py-3 border-y border-white/10 my-3">
-                <div>
+              <div className="grid grid-cols-2 gap-3 text-xs py-3 border-y border-white/10 my-3">
+                <div className="min-w-0">
                   <span className="text-[10px] text-slate-400 block uppercase tracking-wider">Visa Category</span>
-                  <span className="font-medium text-slate-100 line-clamp-1">{selectedDest.visaType}</span>
+                  <span className="font-medium text-slate-100 line-clamp-2 break-words">{selectedDest.visaType}</span>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="text-[10px] text-slate-400 block uppercase tracking-wider">Timeline</span>
-                  <span className="font-medium text-slate-100">{selectedDest.processingTime}</span>
+                  <span className="font-medium text-slate-100 break-words">{selectedDest.processingTime}</span>
                 </div>
               </div>
 
               <button
                 onClick={() => scrollToContact(selectedDest.name)}
-                className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#1F4FA3] to-[#5BB8F5] text-white text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2 hover:opacity-95 transition-opacity"
+                className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#1F4FA3] to-[#5BB8F5] text-white text-xs uppercase tracking-wider sm:tracking-widest font-semibold flex items-center justify-center gap-2 hover:opacity-95 transition-opacity"
               >
                 <span>Apply for {selectedDest.name}</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
               </button>
             </div>
           </div>
@@ -109,7 +109,7 @@ export const DestinationsSection: React.FC = () => {
                   key={dest.id}
                   id={`dest-item-${dest.id}`}
                   onClick={() => handleSelect(dest)}
-                  className={`group cursor-pointer p-5 rounded-2xl border transition-all duration-200 text-left flex flex-col justify-between ${
+                  className={`group cursor-pointer p-4 sm:p-5 rounded-2xl border transition-all duration-200 text-left flex flex-col justify-between min-w-0 ${
                     isSelected
                       ? 'bg-gradient-to-br from-[#F0F6FE] to-white border-[#1F4FA3] shadow-md ring-2 ring-[#5BB8F5]/30'
                       : 'bg-[#FBFDFF] hover:bg-white border-[#0B1F4D]/8 hover:border-[#1F4FA3]/30 hover:shadow-sm'
@@ -117,44 +117,44 @@ export const DestinationsSection: React.FC = () => {
                 >
                   <div>
                     {/* Flag & Header */}
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-2xl" role="img" aria-label={dest.name}>
+                    <div className="flex items-center justify-between mb-2 gap-2">
+                      <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                        <span className="text-2xl flex-shrink-0" role="img" aria-label={dest.name}>
                           {dest.flag}
                         </span>
-                        <h3 className="font-serif text-lg font-medium text-[#0B1F4D] group-hover:text-[#1F4FA3] transition-colors">
+                        <h3 className="font-serif text-lg font-medium text-[#0B1F4D] group-hover:text-[#1F4FA3] transition-colors truncate">
                           {dest.name}
                         </h3>
                       </div>
 
                       {isSelected ? (
-                        <span className="w-6 h-6 rounded-full bg-[#1F4FA3] text-white flex items-center justify-center">
+                        <span className="w-6 h-6 rounded-full bg-[#1F4FA3] text-white flex items-center justify-center flex-shrink-0">
                           <Check className="w-3.5 h-3.5" />
                         </span>
                       ) : (
-                        <MapPin className="w-4 h-4 text-slate-300 group-hover:text-[#5BB8F5] transition-colors" />
+                        <MapPin className="w-4 h-4 text-slate-300 group-hover:text-[#5BB8F5] transition-colors flex-shrink-0" />
                       )}
                     </div>
 
                     {/* Visa type badge */}
-                    <p className="text-xs font-medium text-[#1F4FA3] mb-2 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#5BB8F5]" />
-                      <span>{dest.visaType}</span>
+                    <p className="text-xs font-medium text-[#1F4FA3] mb-2 flex items-start gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#5BB8F5] flex-shrink-0 mt-1" />
+                      <span className="break-words min-w-0">{dest.visaType}</span>
                     </p>
 
                     {/* Short Description */}
-                    <p className="text-xs text-[#5B6B85] font-light leading-relaxed mb-4">
+                    <p className="text-xs text-[#5B6B85] font-light leading-relaxed mb-4 break-words">
                       {dest.description}
                     </p>
                   </div>
 
                   {/* Footer stats */}
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#5B6B85]">
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3 text-[#1F4FA3]" />
-                      <span>{dest.processingTime}</span>
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2 text-[11px] text-[#5B6B85]">
+                    <span className="flex items-center gap-1 min-w-0">
+                      <Clock className="w-3 h-3 text-[#1F4FA3] flex-shrink-0" />
+                      <span className="truncate">{dest.processingTime}</span>
                     </span>
-                    <span className="font-medium text-[#0B1F4D] group-hover:text-[#1F4FA3] transition-colors">
+                    <span className="font-medium text-[#0B1F4D] group-hover:text-[#1F4FA3] transition-colors whitespace-nowrap flex-shrink-0">
                       {dest.featuredRate}
                     </span>
                   </div>

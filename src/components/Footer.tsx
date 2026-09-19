@@ -17,24 +17,24 @@ export const Footer: React.FC = () => {
       <div className="absolute top-0 left-1/3 w-[600px] h-[300px] bg-[#1F4FA3]/15 blur-[120px] pointer-events-none -z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-white/10">
           
           {/* Brand Column */}
-          <div className="lg:col-span-4 flex flex-col items-start">
-            <BrandLogo size="lg" variant="dark" className="mb-6" />
+          <div className="lg:col-span-4 flex flex-col items-start min-w-0">
+            <BrandLogo size="lg" variant="dark" className="mb-6 max-w-full" />
 
-            <p className="text-xs sm:text-sm text-[#8DBCE2] font-light leading-relaxed mb-6 max-w-sm">
+            <p className="text-xs sm:text-sm text-[#8DBCE2] font-light leading-relaxed mb-6 max-w-sm break-words">
               {SITE_CONFIG.brand.description}
             </p>
 
-            <div className="flex items-center gap-3 text-xs text-slate-300">
-              <ShieldCheck className="w-4 h-4 text-[#5BB8F5]" />
-              <span>Registered Consular &amp; Travel Solutions Partner</span>
+            <div className="flex items-start gap-2.5 text-xs text-slate-300">
+              <ShieldCheck className="w-4 h-4 text-[#5BB8F5] flex-shrink-0 mt-0.5" />
+              <span className="break-words">Registered Consular &amp; Travel Solutions Partner</span>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 min-w-0">
             <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5BB8F5] mb-5">
               Navigation
             </h4>
@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
                       e.preventDefault();
                       scrollTo(item.href);
                     }}
-                    className="text-xs text-slate-300 hover:text-white transition-colors"
+                    className="text-xs text-slate-300 hover:text-white transition-colors block truncate"
                   >
                     {item.label}
                   </a>
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Services Portfolio */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 min-w-0">
             <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5BB8F5] mb-5">
               Services Portfolio
             </h4>
@@ -81,7 +81,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Official Direct Contact */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 min-w-0">
             <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5BB8F5] mb-5">
               Inquiries &amp; Support
             </h4>
@@ -116,7 +116,7 @@ export const Footer: React.FC = () => {
 
               <div>
                 <span className="text-[10px] text-slate-400 block uppercase tracking-wider">Location</span>
-                <p className="text-slate-300">{SITE_CONFIG.contact.address}</p>
+                <p className="text-slate-300 break-words">{SITE_CONFIG.contact.address}</p>
                 <p className="text-slate-400 text-[11px]">{SITE_CONFIG.contact.cityCountry}</p>
               </div>
             </div>
@@ -125,8 +125,8 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar: Copyright and Tagline */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center sm:text-left">
+          <p className="break-words">
             © {currentYear} {SITE_CONFIG.brand.name} Global Travel &amp; Visa Solutions. All rights reserved.
           </p>
 

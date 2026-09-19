@@ -68,51 +68,51 @@ export const ServicesSection: React.FC = () => {
               <div
                 key={service.id}
                 id={`service-card-${service.id}`}
-                className="group relative bg-white/90 backdrop-blur-md rounded-2xl p-7 border border-[#0B1F4D]/8 shadow-[0_4px_25px_rgba(11,31,77,0.03)] hover:shadow-[0_12px_35px_rgba(31,79,163,0.1)] hover:border-[#5BB8F5]/40 transition-all duration-300 flex flex-col justify-between"
+                className="group relative bg-white/90 backdrop-blur-md rounded-2xl p-5 sm:p-7 border border-[#0B1F4D]/8 shadow-[0_4px_25px_rgba(11,31,77,0.03)] hover:shadow-[0_12px_35px_rgba(31,79,163,0.1)] hover:border-[#5BB8F5]/40 transition-all duration-300 flex flex-col justify-between min-w-0"
               >
                 {/* Top Bar: Icon + Badge */}
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-[#F0F6FD] group-hover:bg-[#1F4FA3] text-[#1F4FA3] group-hover:text-white transition-colors duration-300 flex items-center justify-center shadow-inner">
+                  <div className="flex items-center justify-between gap-2 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-[#F0F6FD] group-hover:bg-[#1F4FA3] text-[#1F4FA3] group-hover:text-white transition-colors duration-300 flex items-center justify-center shadow-inner flex-shrink-0">
                       <Icon className="w-6 h-6 stroke-[1.5]" />
                     </div>
 
                     {service.badge && (
-                      <span className="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#5BB8F5]/15 text-[#1F4FA3] border border-[#5BB8F5]/30">
+                      <span className="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#5BB8F5]/15 text-[#1F4FA3] border border-[#5BB8F5]/30 whitespace-nowrap">
                         {service.badge}
                       </span>
                     )}
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-serif text-xl sm:text-2xl font-light text-[#0B1F4D] mb-3 group-hover:text-[#1F4FA3] transition-colors">
+                  <h3 className="font-serif text-xl sm:text-2xl font-light text-[#0B1F4D] mb-3 group-hover:text-[#1F4FA3] transition-colors break-words">
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-[#5B6B85] font-light leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-[#5B6B85] font-light leading-relaxed mb-6 break-words">
                     {service.shortDesc}
                   </p>
 
                   {/* Key Features Bullet Points */}
                   <ul className="space-y-2 mb-6 border-t border-slate-100 pt-4">
                     {service.features.map((feat, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-xs text-[#0B1F4D]/80">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#5BB8F5] flex-shrink-0" />
-                        <span>{feat}</span>
+                      <li key={idx} className="flex items-start gap-2 text-xs text-[#0B1F4D]/80">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#5BB8F5] flex-shrink-0 mt-0.5" />
+                        <span className="break-words min-w-0">{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Bottom Action */}
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
                   <button
                     onClick={() => setSelectedService(service)}
                     className="text-xs font-semibold tracking-wider text-[#1F4FA3] group-hover:text-[#0B1F4D] flex items-center gap-1.5 transition-colors"
                   >
                     <span>View Specifications</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                   </button>
 
                   <button
@@ -130,8 +130,8 @@ export const ServicesSection: React.FC = () => {
 
       {/* Service Detail Modal */}
       {selectedService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B1F4D]/60 backdrop-blur-sm animate-fade-in">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-white/60 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#0B1F4D]/60 backdrop-blur-sm animate-fade-in overflow-y-auto">
+          <div className="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-5 sm:p-8 shadow-2xl border border-white/60 relative my-auto">
             <button
               onClick={() => setSelectedService(null)}
               className="absolute top-5 right-5 p-2 rounded-full text-[#5B6B85] hover:text-[#0B1F4D] hover:bg-slate-100 transition-colors"

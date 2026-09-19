@@ -166,20 +166,20 @@ _Please review my profile and advise on required documents._`;
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#0B1F4D] tracking-tight mb-4">
+          <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#0B1F4D] tracking-tight mb-4 break-words">
             Begin Your Consultation
           </h2>
 
-          <p className="text-sm sm:text-base text-[#5B6B85] font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-[#5B6B85] font-light leading-relaxed break-words">
             Submit your profile details for an initial assessment. Our visa officers will audit your background and coordinate directly with you.
           </p>
         </div>
 
         {/* 2-Column Layout: Form + Official Contact Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left: Contact Information Card */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-[#0B1F4D] to-[#122A63] text-white p-8 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden">
+          <div className="lg:col-span-5 bg-gradient-to-br from-[#0B1F4D] to-[#122A63] text-white p-6 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden min-w-0">
             {/* Ambient accent */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#5BB8F5]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -196,7 +196,7 @@ _Please review my profile and advise on required documents._`;
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#5BB8F5] flex-shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="text-[10px] text-slate-400 block uppercase tracking-wider">Official Email</span>
                   <a
                     href={`mailto:${SITE_CONFIG.contact.email}`}
@@ -212,7 +212,7 @@ _Please review my profile and advise on required documents._`;
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#5BB8F5] flex-shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="text-[10px] text-slate-400 block uppercase tracking-wider">Direct Phone &amp; WhatsApp</span>
                   <a
                     href={`tel:${SITE_CONFIG.contact.phone}`}
@@ -231,7 +231,7 @@ _Please review my profile and advise on required documents._`;
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#5BB8F5] flex-shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="text-[10px] text-slate-400 block uppercase tracking-wider">Consultation Hours</span>
                   <p className="text-xs sm:text-sm text-slate-200">
                     {SITE_CONFIG.contact.workingHours}
@@ -247,9 +247,9 @@ _Please review my profile and advise on required documents._`;
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#5BB8F5] flex-shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="text-[10px] text-slate-400 block uppercase tracking-wider">Executive Office</span>
-                  <p className="text-xs sm:text-sm text-slate-200">
+                  <p className="text-xs sm:text-sm text-slate-200 break-words">
                     {SITE_CONFIG.contact.address}
                   </p>
                   <p className="text-xs text-slate-400 mt-0.5">
@@ -267,16 +267,16 @@ _Please review my profile and advise on required documents._`;
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2.5 transition-colors shadow-lg"
+                className="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white text-xs uppercase tracking-wider sm:tracking-widest font-semibold flex items-center justify-center gap-2.5 transition-colors shadow-lg text-center"
               >
-                <MessageSquare className="w-4 h-4 fill-current" />
+                <MessageSquare className="w-4 h-4 fill-current flex-shrink-0" />
                 <span>Instant WhatsApp Inquiry</span>
               </a>
             </div>
           </div>
 
           {/* Right: Working Consultation Form */}
-          <div className="lg:col-span-7 bg-[#FBFDFF] border border-[#0B1F4D]/8 rounded-3xl p-8 sm:p-10 shadow-sm">
+          <div className="lg:col-span-7 bg-[#FBFDFF] border border-[#0B1F4D]/8 rounded-3xl p-5 sm:p-10 shadow-sm min-w-0">
             {isSuccess ? (
               <div className="text-center py-10 animate-fade-in">
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 shadow-sm">
@@ -463,17 +463,17 @@ _Please review my profile and advise on required documents._`;
                   type="submit"
                   id="submit-consultation-form-btn"
                   disabled={isSubmitting}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-[#0B1F4D] via-[#122B66] to-[#1F4FA3] text-white text-xs sm:text-sm uppercase tracking-[0.2em] font-medium shadow-[0_8px_25px_rgba(11,31,77,0.2)] hover:shadow-[0_12px_30px_rgba(31,79,163,0.3)] hover:opacity-95 active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer"
+                  className="w-full py-3.5 sm:py-4 px-4 sm:px-6 rounded-xl bg-gradient-to-r from-[#0B1F4D] via-[#122B66] to-[#1F4FA3] text-white text-xs sm:text-sm uppercase tracking-wider sm:tracking-[0.14em] font-medium shadow-[0_8px_25px_rgba(11,31,77,0.2)] hover:shadow-[0_12px_30px_rgba(31,79,163,0.3)] hover:opacity-95 active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer text-center"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      <span>Validating Consular Docket...</span>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin flex-shrink-0" />
+                      <span className="whitespace-nowrap text-center">Submitting Request...</span>
                     </>
                   ) : (
                     <>
-                      <span>Submit &amp; Open WhatsApp Chat</span>
-                      <Send className="w-4 h-4" />
+                      <span className="whitespace-nowrap text-center">Submit Consultation</span>
+                      <Send className="w-4 h-4 flex-shrink-0" />
                     </>
                   )}
                 </button>
