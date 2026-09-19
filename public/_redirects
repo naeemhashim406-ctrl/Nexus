@@ -1,0 +1,5 @@
+# Netlify redirect rules for API and single page application
+/api/consultation  /.netlify/functions/consultation  200
+/api/health        /.netlify/functions/health        200
+/api/*             /.netlify/functions/:splat        200
+/*                 /index.html                       200

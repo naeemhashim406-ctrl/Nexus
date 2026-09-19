@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Jost", system-ui, -apple-system, sans-serif;
+  --color-nexus-navy: #0B1F4D;
+  --color-nexus-royal: #1F4FA3;
+  --color-nexus-sky: #5BB8F5;
+  --color-nexus-slate: #5B6B85;
+  --color-nexus-ice: #F4F8FD;
+}
+
+:root {
+  color-scheme: light;
+  --nexus-navy: #0B1F4D;
+  --nexus-royal: #1F4FA3;
+  --nexus-sky: #5BB8F5;
+  --nexus-slate: #5B6B85;
+  --nexus-ice: #F4F8FD;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F8FAFD;
+  color: #0B1F4D;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-serif);
+}
+
+/* Custom delicate scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F0F5FC;
+}
+::-webkit-scrollbar-thumb {
+  background: #1F4FA3;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5BB8F5;
+}
+
+/* Subtle glassmorphic panel styling */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 35px -10px rgba(11, 31, 77, 0.06);
+}
+
+.glass-panel-dark {
+  background: rgba(11, 31, 77, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(91, 184, 245, 0.15);
+  box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.35);
+}
+
+/* Diagonal subtle faceted clipping */
+.clip-facet-sm {
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+}
+
+.clip-diagonal-edge {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), 0 100%);
+}
+
