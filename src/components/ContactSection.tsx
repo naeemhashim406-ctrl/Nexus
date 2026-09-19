@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, AlertCircle, MessageSquare } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { SITE_CONFIG } from '../config/content';
+import { ScrollReveal } from './ScrollReveal';
 
 interface FormState {
   fullName: string;
@@ -157,8 +158,8 @@ _Please review my profile and advise on required documents._`;
     <section id="contact" className="py-20 md:py-28 bg-[#FFFFFF] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        {/* Section Header with Silky Reveal */}
+        <ScrollReveal variant="fadeUp" className="max-w-2xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F0F6FD] border border-[#1F4FA3]/15 shadow-sm mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1F4FA3]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#1F4FA3]">
@@ -173,13 +174,14 @@ _Please review my profile and advise on required documents._`;
           <p className="text-sm sm:text-base text-[#5B6B85] font-light leading-relaxed break-words">
             Submit your profile details for an initial assessment. Our visa officers will audit your background and coordinate directly with you.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* 2-Column Layout: Form + Official Contact Details */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left: Contact Information Card */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-[#0B1F4D] to-[#122A63] text-white p-6 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden min-w-0">
+          <ScrollReveal variant="fadeRight" className="lg:col-span-5 w-full min-w-0">
+            <div className="bg-gradient-to-br from-[#0B1F4D] to-[#122A63] text-white p-6 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden min-w-0">
             {/* Ambient accent */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#5BB8F5]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -273,10 +275,12 @@ _Please review my profile and advise on required documents._`;
                 <span>Instant WhatsApp Inquiry</span>
               </a>
             </div>
-          </div>
+            </div>
+          </ScrollReveal>
 
-          {/* Right: Working Consultation Form */}
-          <div className="lg:col-span-7 bg-[#FBFDFF] border border-[#0B1F4D]/8 rounded-3xl p-5 sm:p-10 shadow-sm min-w-0">
+          {/* Right: Working Consultation Form with Silky Reveal */}
+          <ScrollReveal variant="fadeLeft" delay={0.1} className="lg:col-span-7 w-full min-w-0">
+            <div className="bg-[#FBFDFF] border border-[#0B1F4D]/8 rounded-3xl p-5 sm:p-10 shadow-sm min-w-0">
             {isSuccess ? (
               <div className="text-center py-10 animate-fade-in">
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 shadow-sm">
@@ -483,7 +487,8 @@ _Please review my profile and advise on required documents._`;
                 </p>
               </form>
             )}
-          </div>
+            </div>
+          </ScrollReveal>
 
         </div>
 

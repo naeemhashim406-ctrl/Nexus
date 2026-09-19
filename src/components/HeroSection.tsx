@@ -1,7 +1,9 @@
 import React from 'react';
-import { ArrowRight, Compass, ShieldCheck, Sparkles, ChevronDown } from 'lucide-react';
+import { motion } from 'motion/react';
+import { ArrowRight, Compass, ShieldCheck, ChevronDown } from 'lucide-react';
 import { ThreeGlobe } from './ThreeGlobe';
 import { SITE_CONFIG } from '../config/content';
+import { EASE_LUXURY } from './ScrollReveal';
 
 export const HeroSection: React.FC = () => {
   const scrollTo = (id: string) => {
@@ -21,33 +23,53 @@ export const HeroSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Hero Content */}
+          {/* Left Hero Content with Staggered Cascading Reveals */}
           <div className="lg:col-span-7 flex flex-col items-start z-10 w-full min-w-0">
             {/* Super-title badge */}
-            <div className="inline-flex flex-wrap sm:flex-nowrap items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/90 border border-[#1F4FA3]/15 shadow-[0_2px_10px_rgba(11,31,77,0.04)] mb-6 max-w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.8, ease: EASE_LUXURY, delay: 0.1 }}
+              className="inline-flex flex-wrap sm:flex-nowrap items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/90 border border-[#1F4FA3]/15 shadow-[0_2px_10px_rgba(11,31,77,0.04)] mb-6 max-w-full"
+            >
               <span className="w-2 h-2 rounded-full bg-[#1F4FA3] flex-shrink-0" />
               <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider sm:tracking-[0.2em] text-[#1F4FA3] whitespace-nowrap">
                 Global Study &amp; Travel Advisory
               </span>
               <span className="text-[#5B6B85] text-xs hidden xs:inline">|</span>
               <span className="text-[10px] sm:text-[11px] font-medium text-[#5B6B85] hidden xs:inline whitespace-nowrap">2025/2026 Intakes Open</span>
-            </div>
+            </motion.div>
 
             {/* Main Headline */}
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-light text-[#0B1F4D] tracking-tight leading-[1.12] sm:leading-[1.08] mb-6 break-words">
+            <motion.h1
+              initial={{ opacity: 0, y: 28, filter: 'blur(6px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.9, ease: EASE_LUXURY, delay: 0.22 }}
+              className="font-serif text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-light text-[#0B1F4D] tracking-tight leading-[1.12] sm:leading-[1.08] mb-6 break-words"
+            >
               Your Journey. <br />
               <span className="italic font-normal bg-gradient-to-r from-[#0B1F4D] via-[#1F4FA3] to-[#2F7BE5] bg-clip-text text-transparent">
                 Our Priority.
               </span>
-            </h1>
+            </motion.h1>
 
             {/* Subline */}
-            <p className="text-sm sm:text-base lg:text-lg text-[#5B6B85] font-light leading-relaxed max-w-xl mb-8 break-words">
+            <motion.p
+              initial={{ opacity: 0, y: 24, filter: 'blur(4px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.85, ease: EASE_LUXURY, delay: 0.35 }}
+              className="text-sm sm:text-base lg:text-lg text-[#5B6B85] font-light leading-relaxed max-w-xl mb-8 break-words"
+            >
               Premier study visa consultation, global university admissions, official overseas work permits, tourist visas, and verified airfare holds. Based at Civic Center Gujranwala, we bridge the distance to world borders with zero margin for error.
-            </p>
+            </motion.p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto mb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: EASE_LUXURY, delay: 0.48 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto mb-10"
+            >
               <button
                 id="hero-book-consultation-btn"
                 onClick={() => scrollTo('#contact')}
@@ -65,10 +87,15 @@ export const HeroSection: React.FC = () => {
                 <Compass className="w-4 h-4 text-[#1F4FA3] flex-shrink-0" />
                 <span>Explore Services</span>
               </button>
-            </div>
+            </motion.div>
 
             {/* Quick credibility bullet tags */}
-            <div className="pt-6 border-t border-[#0B1F4D]/8 w-full flex flex-wrap items-center gap-y-2.5 gap-x-4 sm:gap-x-6 text-xs text-[#5B6B85]">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: EASE_LUXURY, delay: 0.6 }}
+              className="pt-6 border-t border-[#0B1F4D]/8 w-full flex flex-wrap items-center gap-y-2.5 gap-x-4 sm:gap-x-6 text-xs text-[#5B6B85]"
+            >
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#1F4FA3] flex-shrink-0" />
                 <span>98.6% Verified Approval Protocol</span>
@@ -81,11 +108,16 @@ export const HeroSection: React.FC = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#1F4FA3] flex-shrink-0" />
                 <span className="break-all sm:break-normal">Direct Support: <strong className="text-[#0B1F4D] font-mono">{SITE_CONFIG.contact.phoneFormatted}</strong></span>
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Right 3D Interactive Globe Container */}
-          <div className="lg:col-span-5 relative flex items-center justify-center w-full min-w-0">
+          {/* Right 3D Interactive Globe Container with Silky Scale Reveal */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.88, filter: 'blur(8px)' }}
+            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 1.1, ease: EASE_LUXURY, delay: 0.3 }}
+            className="lg:col-span-5 relative flex items-center justify-center w-full min-w-0"
+          >
             <div className="w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[400px] lg:max-w-[460px] aspect-square relative flex items-center justify-center mx-auto">
               <ThreeGlobe
                 size="hero"
@@ -94,13 +126,18 @@ export const HeroSection: React.FC = () => {
                 className="w-full h-full"
               />
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
 
       {/* Downward scroll indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1 opacity-70 hover:opacity-100 transition-opacity">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.75 }}
+        transition={{ delay: 0.9, duration: 0.8 }}
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1 opacity-70 hover:opacity-100 transition-opacity"
+      >
         <span className="text-[10px] tracking-[0.2em] uppercase text-[#5B6B85] font-medium">Scroll</span>
         <button
           onClick={() => scrollTo('#trust-strip')}
@@ -109,7 +146,8 @@ export const HeroSection: React.FC = () => {
         >
           <ChevronDown className="w-4 h-4" />
         </button>
-      </div>
+      </motion.div>
     </section>
   );
 };
+
