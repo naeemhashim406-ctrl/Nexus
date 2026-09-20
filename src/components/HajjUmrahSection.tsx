@@ -234,12 +234,12 @@ export const HajjUmrahSection: React.FC = () => {
                 {/* Hotel & Location Proximity */}
                 <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FAFD] border border-[#0B1F4D]/6 space-y-3 mb-5 sm:mb-6">
                   <div>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 mb-1">
-                      <span className="font-semibold text-xs text-[#0B1F4D] flex items-center gap-1.5 flex-shrink-0">
+                    <div className="flex flex-col items-start gap-1.5 mb-1.5">
+                      <span className="font-semibold text-xs text-[#0B1F4D] flex items-center gap-1.5">
                         <MapPin className="w-3.5 h-3.5 text-[#1F4FA3] flex-shrink-0" />
                         <span>Makkah Al-Mukarramah</span>
                       </span>
-                      <span className="self-start sm:self-auto text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-medium leading-tight break-words">
+                      <span className="self-start text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-medium leading-normal max-w-full">
                         {pkg.makkahDistance}
                       </span>
                     </div>
@@ -247,12 +247,12 @@ export const HajjUmrahSection: React.FC = () => {
                   </div>
 
                   <div className="pt-2.5 border-t border-[#0B1F4D]/6">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 mb-1">
-                      <span className="font-semibold text-xs text-[#0B1F4D] flex items-center gap-1.5 flex-shrink-0">
+                    <div className="flex flex-col items-start gap-1.5 mb-1.5">
+                      <span className="font-semibold text-xs text-[#0B1F4D] flex items-center gap-1.5">
                         <MapPin className="w-3.5 h-3.5 text-[#1F4FA3] flex-shrink-0" />
                         <span>Madinah Al-Munawwarah</span>
                       </span>
-                      <span className="self-start sm:self-auto text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 font-medium leading-tight break-words">
+                      <span className="self-start text-[11px] px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 font-medium leading-normal max-w-full">
                         {pkg.madinahDistance}
                       </span>
                     </div>
@@ -261,7 +261,7 @@ export const HajjUmrahSection: React.FC = () => {
                 </div>
 
                 {/* Transport & Flights Info */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mb-5 sm:mb-6 py-3 border-y border-[#0B1F4D]/8">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 text-xs mb-5 sm:mb-6 py-3 border-y border-[#0B1F4D]/8">
                   <div className="flex items-start gap-2 min-w-0">
                     <Car className="w-4 h-4 text-[#1F4FA3] flex-shrink-0 mt-0.5" />
                     <div className="min-w-0">
