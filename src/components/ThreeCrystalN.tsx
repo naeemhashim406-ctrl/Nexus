@@ -38,14 +38,14 @@ export const ThreeCrystalN: React.FC<ThreeCrystalNProps> = ({ className = '' }) 
     const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
     camera.position.set(0, 0, 8.5);
 
-    // 2. Renderer
+    // 2. Renderer with performance-optimized pixel ratio
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
       antialias: true,
       powerPreference: 'high-performance',
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
     renderer.setClearColor(0x000000, 0);
     container.innerHTML = '';
     container.appendChild(renderer.domElement);
@@ -160,7 +160,7 @@ export const ThreeCrystalN: React.FC<ThreeCrystalNProps> = ({ className = '' }) 
     orbitMesh.rotation.x = Math.PI / 2.6;
     crystalGroup.add(orbitMesh);
 
-    // 5. Visibility observer
+    // 5. Visibility observer to pause rendering when off-screen
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisibleRef.current = entry.isIntersecting;
@@ -169,21 +169,6 @@ export const ThreeCrystalN: React.FC<ThreeCrystalNProps> = ({ className = '' }) 
     );
     observer.observe(container);
 
-    // Mouse movement interaction to shift lighting
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!container) return;
-      const rect = container.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      const y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-
-      if (mouseLightRef.current) {
-        mouseLightRef.current.position.x = x * 4;
-        mouseLightRef.current.position.y = y * 4;
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
     // 6. Animation loop
     const animate = (time: number) => {
       animFrameIdRef.current = requestAnimationFrame(animate);
@@ -191,6 +176,12 @@ export const ThreeCrystalN: React.FC<ThreeCrystalNProps> = ({ className = '' }) 
       if (!isVisibleRef.current) return;
 
       const t = time * 0.001;
+
+      // Dynamic specular light motion without layout thrashing
+      if (mouseLightRef.current) {
+        mouseLightRef.current.position.x = Math.sin(t * 0.8) * 3.5;
+        mouseLightRef.current.position.y = Math.cos(t * 0.6) * 3.0;
+      }
 
       // Slow elegant rotation with gentle floating wave
       crystalGroup.rotation.y = t * 0.45;
@@ -219,7 +210,6 @@ export const ThreeCrystalN: React.FC<ThreeCrystalNProps> = ({ className = '' }) 
 
     return () => {
       observer.disconnect();
-      window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
       if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
       if (renderer.domElement && renderer.domElement.parentNode) {

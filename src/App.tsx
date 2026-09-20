@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Lenis from 'lenis';
 import { Preloader } from './components/Preloader';
 import { ScrollProgress } from './components/ScrollProgress';
-import { CustomCursor } from './components/CustomCursor';
 import { FloatingActions } from './components/FloatingActions';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
@@ -21,34 +19,6 @@ import { StudyAbroadModal } from './components/StudyAbroadModal';
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('hero');
-
-  // Initialize Lenis smooth scroll
-  useEffect(() => {
-    // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
-
-    let lenis: Lenis | null = null;
-    try {
-      lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      });
-
-      function raf(time: number) {
-        lenis?.raf(time);
-        requestAnimationFrame(raf);
-      }
-
-      requestAnimationFrame(raf);
-    } catch {
-      // Fallback silently to browser native smooth scroll
-    }
-
-    return () => {
-      lenis?.destroy();
-    };
-  }, []);
 
   // Section Observer for Active Navigation Highlighting
   useEffect(() => {
@@ -94,9 +64,6 @@ export default function App() {
       {/* Thin scroll progress bar */}
       <ScrollProgress />
 
-      {/* Desktop custom cursor follower */}
-      <CustomCursor />
-
       {/* Sticky frosted glass Navbar */}
       <Navbar activeSection={activeSection} />
 
@@ -114,7 +81,7 @@ export default function App() {
         {/* 4. Hajj & Umrah Pilgrimage Packages & Ziyarat */}
         <HajjUmrahSection />
 
-        {/* 5. Destinations: Sticky 3D Globe with Interactive Countries */}
+        {/* 5. Destinations: Popular Travel & Visa Corridors */}
         <DestinationsSection />
 
         {/* 6. How It Works: 4-Stage Process Timeline */}

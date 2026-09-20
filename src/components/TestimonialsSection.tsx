@@ -36,14 +36,14 @@ export const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 md:py-28 bg-white relative overflow-hidden">
+    <section id="testimonials" className="py-12 md:py-16 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header with Carousel Navigation Controls */}
         <ScrollReveal variant="fadeUp">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F0F6FD] border border-[#1F4FA3]/15 shadow-sm mb-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F0F6FD] border border-[#1F4FA3]/15 shadow-sm mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#1F4FA3]" />
                 <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#1F4FA3]">
                   Client Endorsements

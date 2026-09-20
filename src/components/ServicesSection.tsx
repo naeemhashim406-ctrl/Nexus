@@ -38,22 +38,22 @@ export const ServicesSection: React.FC = () => {
   };
 
   return (
-    <section id="services" className="py-20 md:py-28 bg-[#F4F8FD] relative overflow-hidden">
+    <section id="services" className="py-12 md:py-16 bg-[#F4F8FD] relative overflow-hidden">
       {/* Background soft gradients */}
       <div className="absolute top-1/4 -right-40 w-96 h-96 rounded-full bg-[#5BB8F5]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -left-40 w-96 h-96 rounded-full bg-[#1F4FA3]/8 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header with Silky Reveal */}
-        <ScrollReveal variant="fadeUp" className="max-w-2xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#1F4FA3]/15 shadow-sm mb-4">
+        <ScrollReveal variant="fadeUp" className="max-w-2xl mx-auto text-center mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#1F4FA3]/15 shadow-sm mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1F4FA3]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#1F4FA3]">
               Consular &amp; Travel Portfolio
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#0B1F4D] tracking-tight mb-4">
+          <h2 className="font-serif text-2xl sm:text-4xl font-light text-[#0B1F4D] tracking-tight mb-3">
             Specialized Visa &amp; Travel Services
           </h2>
 

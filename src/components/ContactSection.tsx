@@ -155,19 +155,19 @@ _Please review my profile and advise on required documents._`;
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-[#FFFFFF] relative overflow-hidden">
+    <section id="contact" className="py-12 md:py-16 bg-[#FFFFFF] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header with Silky Reveal */}
-        <ScrollReveal variant="fadeUp" className="max-w-2xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F0F6FD] border border-[#1F4FA3]/15 shadow-sm mb-4">
+        <ScrollReveal variant="fadeUp" className="max-w-2xl mx-auto text-center mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F0F6FD] border border-[#1F4FA3]/15 shadow-sm mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1F4FA3]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#1F4FA3]">
               Personalized Consultation
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#0B1F4D] tracking-tight mb-4 break-words">
+          <h2 className="font-serif text-2xl sm:text-4xl font-light text-[#0B1F4D] tracking-tight mb-3 break-words">
             Begin Your Consultation
           </h2>
 

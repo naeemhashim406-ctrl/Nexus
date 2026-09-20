@@ -56,7 +56,7 @@ export const HajjUmrahSection: React.FC = () => {
   return (
     <section
       id="hajj-umrah"
-      className="py-20 md:py-28 bg-gradient-to-b from-[#FFFFFF] via-[#F4F8FD] to-[#EBF3FC]/60 relative overflow-hidden"
+      className="py-12 md:py-16 bg-gradient-to-b from-[#FFFFFF] via-[#F4F8FD] to-[#EBF3FC]/60 relative overflow-hidden"
     >
       {/* Subtle ambient light shapes */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-b from-[#D4AF37]/10 via-[#1F4FA3]/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
@@ -64,16 +64,16 @@ export const HajjUmrahSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <ScrollReveal variant="fadeDown" delay={0.05}>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1F4FA3]/10 border border-[#1F4FA3]/20 text-[#1F4FA3] text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1F4FA3]/10 border border-[#1F4FA3]/20 text-[#1F4FA3] text-xs font-semibold uppercase tracking-[0.2em] mb-3">
               <Moon className="w-3.5 h-3.5 text-[#1F4FA3] fill-[#1F4FA3]/30" />
               <span>Sacred Pilgrimage Services • Nusuk Authorized</span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal variant="fadeUp" delay={0.12}>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#0B1F4D] tracking-tight mb-4">
+            <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-light text-[#0B1F4D] tracking-tight mb-3">
               Hajj &amp; Umrah Solutions. <br className="hidden sm:inline" />
               <span className="italic font-normal bg-gradient-to-r from-[#0B1F4D] via-[#1F4FA3] to-[#2F7BE5] bg-clip-text text-transparent">
                 A Journey of Sacred Peace.

@@ -156,87 +156,22 @@ interface InteractiveCardProps {
 }
 
 /**
- * InteractiveCard: Adds subtle 3D hover physics and cursor light spotlight to revealed cards
+ * InteractiveCard: High-performance card container with hardware-accelerated hover physics
+ * and zero layout-thrashing / zero React state re-renders on mouse movements.
  */
 export const InteractiveCard: React.FC<InteractiveCardProps> = ({
   children,
   className = '',
-  tiltAngle = 4,
-  enableSpotlight = true,
   onClick,
   id,
 }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-
-  // Mouse position inside card for spotlight and tilt
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  // Springs for silky physics
-  const springConfig = { damping: 20, stiffness: 260 };
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [tiltAngle, -tiltAngle]), springConfig);
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-tiltAngle, tiltAngle]), springConfig);
-  const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    setIsTouchDevice(window.matchMedia('(pointer: coarse)').matches);
-  }, []);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (isTouchDevice || !cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-    mouseX.set(x);
-    mouseY.set(y);
-    setSpotlightPos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
-  const handleMouseEnter = () => {
-    if (!isTouchDevice) setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
   return (
-    <motion.div
-      ref={cardRef}
+    <div
       id={id}
       onClick={onClick}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        transformStyle: 'preserve-3d',
-        rotateX: isTouchDevice ? 0 : rotateX,
-        rotateY: isTouchDevice ? 0 : rotateY,
-      }}
-      whileHover={{
-        y: -4,
-        transition: { duration: 0.3, ease: EASE_LUXURY },
-      }}
-      className={`relative group ${className}`}
+      className={`relative group transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_35px_rgba(11,31,77,0.08)] ${className}`}
     >
-      {/* Dynamic Cursor Spotlight Effect */}
-      {enableSpotlight && isHovered && !isTouchDevice && (
-        <div
-          className="pointer-events-none absolute -inset-px rounded-[inherit] opacity-100 transition-opacity duration-300 z-10"
-          style={{
-            background: `radial-gradient(400px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(91, 184, 245, 0.12), transparent 70%)`,
-          }}
-        />
-      )}
       {children}
-    </motion.div>
+    </div>
   );
 };

@@ -253,14 +253,14 @@ export const ThreeGlobe: React.FC<ThreeGlobeProps> = ({
     camera.position.z = size === 'hero' ? 7.4 : 6.4;
     cameraRef.current = camera;
 
-    // 3. Setup WebGL Renderer with capped pixel ratio
+    // 3. Setup WebGL Renderer with capped pixel ratio (capped at 1.2 to prevent GPU fillrate lag)
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
       antialias: true,
       powerPreference: 'high-performance',
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.2));
     renderer.setClearColor(0x000000, 0);
     renderer.domElement.style.display = 'block';
     renderer.domElement.style.width = '100%';

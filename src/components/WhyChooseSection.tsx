@@ -6,7 +6,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem, InteractiveCard } from './
 
 export const WhyChooseSection: React.FC = () => {
   return (
-    <section id="why-us" className="py-20 md:py-28 bg-[#07132F] text-white relative overflow-hidden">
+    <section id="why-us" className="py-12 md:py-16 bg-[#07132F] text-white relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#1F4FA3]/25 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#5BB8F5]/15 rounded-full blur-[120px] pointer-events-none" />
@@ -14,15 +14,15 @@ export const WhyChooseSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header with Silky Reveal */}
-        <ScrollReveal variant="fadeUp" className="max-w-2xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#5BB8F5]/30 mb-4 backdrop-blur-md">
+        <ScrollReveal variant="fadeUp" className="max-w-2xl mx-auto text-center mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#5BB8F5]/30 mb-3 backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-[#5BB8F5]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#7CD0FF]">
               The NEXUS Advantage
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-light tracking-tight text-white mb-4 break-words">
+          <h2 className="font-serif text-2xl sm:text-4xl font-light tracking-tight text-white mb-3 break-words">
             Why Discerning Travelers Choose NEXUS
           </h2>
 

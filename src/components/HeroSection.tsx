@@ -14,7 +14,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-28 pb-16 md:pt-36 md:pb-24 flex items-center overflow-hidden bg-gradient-to-b from-[#EBF3FC]/70 via-[#F4F8FD] to-[#FFFFFF]"
+      className="relative min-h-[85vh] pt-24 pb-10 md:pt-28 md:pb-14 flex items-center overflow-hidden bg-gradient-to-b from-[#EBF3FC]/70 via-[#F4F8FD] to-[#FFFFFF]"
     >
       {/* Subtle background ambient mesh */}
       <div className="absolute top-0 right-0 w-3/4 h-3/4 bg-gradient-to-bl from-[#5BB8F5]/10 via-[#1F4FA3]/5 to-transparent rounded-bl-full pointer-events-none blur-3xl -z-10" />
