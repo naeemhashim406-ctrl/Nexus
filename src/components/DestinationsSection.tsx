@@ -63,7 +63,7 @@ export const DestinationsSection: React.FC = () => {
             </div>
 
             {/* Selected Country Active Card Spotlight */}
-            <div className="mt-6 w-full max-w-[420px] p-5 rounded-2xl bg-[#0B1F4D] text-white shadow-xl transition-all duration-300">
+            <div className="mt-6 w-full max-w-[420px] p-4 sm:p-5 rounded-2xl bg-[#0B1F4D] text-white shadow-xl transition-all duration-300">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2.5">
                   <span className="text-2xl" role="img" aria-label={selectedDest.name}>
@@ -77,7 +77,7 @@ export const DestinationsSection: React.FC = () => {
                   </div>
                 </div>
 
-                <span className="text-xs px-2.5 py-1 rounded-full bg-[#5BB8F5]/20 text-[#7CD0FF] border border-[#5BB8F5]/30">
+                <span className="text-xs px-2.5 py-1 rounded-full bg-[#5BB8F5]/20 text-[#7CD0FF] border border-[#5BB8F5]/30 flex-shrink-0">
                   {selectedDest.featuredRate}
                 </span>
               </div>
@@ -94,10 +94,11 @@ export const DestinationsSection: React.FC = () => {
               </div>
 
               <button
+                id="destination-apply-btn"
                 onClick={() => scrollToContact(selectedDest.name)}
-                className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#1F4FA3] to-[#5BB8F5] text-white text-xs uppercase tracking-wider sm:tracking-widest font-semibold flex items-center justify-center gap-2 hover:opacity-95 transition-opacity"
+                className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-[#1F4FA3] to-[#5BB8F5] text-white text-[11px] sm:text-xs uppercase tracking-normal sm:tracking-wider font-semibold flex items-center justify-center gap-2 hover:opacity-95 transition-all active:scale-[0.99] min-h-[44px] shadow-sm text-center"
               >
-                <span>Apply for {selectedDest.name}</span>
+                <span className="text-center leading-tight break-words min-w-0">Apply for {selectedDest.name}</span>
                 <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
               </button>
             </div>
