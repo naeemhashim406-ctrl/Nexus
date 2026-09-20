@@ -7,6 +7,7 @@ import {
   Compass,
   ShieldCheck,
   GraduationCap,
+  Moon,
   ArrowRight,
   CheckCircle2,
   X,
@@ -22,6 +23,7 @@ const iconMap: Record<string, React.ElementType> = {
   Compass,
   ShieldCheck,
   GraduationCap,
+  Moon,
 };
 
 export const ServicesSection: React.FC = () => {
@@ -95,9 +97,30 @@ export const ServicesSection: React.FC = () => {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-[#5B6B85] font-light leading-relaxed mb-6 break-words">
+                    <p className="text-xs sm:text-sm text-[#5B6B85] font-light leading-relaxed mb-4 break-words">
                       {service.shortDesc}
                     </p>
+
+                    {/* Special 2027-2028 Intake alert for study-visas */}
+                    {service.id === 'study-visas' && (
+                      <button
+                        type="button"
+                        id="services-study-intake-btn"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.dispatchEvent(new CustomEvent('open-study-abroad-modal'));
+                        }}
+                        className="mb-4 w-full py-2 px-3 rounded-xl bg-gradient-to-r from-emerald-50 to-teal-50 hover:from-emerald-100 hover:to-teal-100 border border-emerald-200 text-emerald-900 text-xs font-semibold flex items-center justify-between transition-all group/btn shadow-xs cursor-pointer"
+                      >
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                          <span>Intake 2027–2028 Open</span>
+                        </span>
+                        <span className="text-[11px] font-bold text-emerald-700 group-hover/btn:translate-x-0.5 transition-transform">
+                          Admissions &amp; Visas &rarr;
+                        </span>
+                      </button>
+                    )}
 
                     {/* Key Features Bullet Points */}
                     <ul className="space-y-2 mb-6 border-t border-slate-100 pt-4">

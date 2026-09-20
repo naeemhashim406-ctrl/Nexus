@@ -37,6 +37,7 @@ const ROUTES: FlightRoute[] = [
   { from: [3.139, 101.6869], to: [-33.8688, 151.2093], name: 'Kuala Lumpur -> Sydney' },
   { from: [51.5074, -0.1278], to: [35.6762, 139.6503], name: 'London -> Tokyo' },
   { from: [25.2048, 55.2708], to: [31.5204, 74.3587], name: 'Dubai -> Lahore' },
+  { from: [31.5204, 74.3587], to: [21.4858, 39.1925], name: 'Lahore -> Jeddah (Hajj & Umrah)' },
   { from: [40.7128, -74.006], to: [41.0082, 28.9784], name: 'New York -> Istanbul' },
 ];
 

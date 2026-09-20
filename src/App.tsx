@@ -8,6 +8,7 @@ import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { TrustStrip } from './components/TrustStrip';
 import { ServicesSection } from './components/ServicesSection';
+import { HajjUmrahSection } from './components/HajjUmrahSection';
 import { DestinationsSection } from './components/DestinationsSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { WhyChooseSection } from './components/WhyChooseSection';
@@ -15,6 +16,7 @@ import { TestimonialsSection } from './components/TestimonialsSection';
 import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { StudyAbroadModal } from './components/StudyAbroadModal';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,6 +55,7 @@ export default function App() {
     const sections = [
       'hero',
       'services',
+      'hajj-umrah',
       'destinations',
       'how-it-works',
       'why-us',
@@ -105,25 +108,28 @@ export default function App() {
         {/* 2. Trust Strip with 4 Animated Stat Counters */}
         <TrustStrip />
 
-        {/* 3. Services: 6 Elegant Cards with Line Icons */}
+        {/* 3. Services: Elegant Cards with Line Icons */}
         <ServicesSection />
 
-        {/* 4. Destinations: Sticky 3D Globe with 8 Countries */}
+        {/* 4. Hajj & Umrah Pilgrimage Packages & Ziyarat */}
+        <HajjUmrahSection />
+
+        {/* 5. Destinations: Sticky 3D Globe with Interactive Countries */}
         <DestinationsSection />
 
-        {/* 5. How It Works: 4-Stage Process Timeline */}
+        {/* 6. How It Works: 4-Stage Process Timeline */}
         <HowItWorksSection />
 
-        {/* 6. Why Choose NEXUS: 4 Key Strengths + 3D Faceted "N" Crystal */}
+        {/* 7. Why Choose NEXUS: 4 Key Strengths + 3D Faceted "N" Crystal */}
         <WhyChooseSection />
 
-        {/* 7. Testimonials: Interactive / Draggable Slider */}
+        {/* 8. Testimonials: Interactive / Draggable Slider */}
         <TestimonialsSection />
 
-        {/* 8. FAQ: 6 Questions Accordion */}
+        {/* 9. FAQ: Questions Accordion */}
         <FaqSection />
 
-        {/* 9. Contact / Free Consultation Form with Validation & WhatsApp */}
+        {/* 10. Contact / Free Consultation Form with Validation & WhatsApp */}
         <ContactSection />
       </main>
 
@@ -132,6 +138,9 @@ export default function App() {
 
       {/* Floating WhatsApp and Back-to-Top Actions */}
       <FloatingActions />
+
+      {/* Study Abroad 2027-2028 Intake Modal Popup (Can be cancelled by customer) */}
+      <StudyAbroadModal isAppLoaded={!isLoading} />
     </div>
   );
 }

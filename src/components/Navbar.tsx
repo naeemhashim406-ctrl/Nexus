@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, MessageSquare, ArrowRight } from 'lucide-react';
+import { Menu, X, Phone, MessageSquare } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 import { SITE_CONFIG } from '../config/content';
 
@@ -74,24 +74,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             })}
           </nav>
 
-          {/* Desktop Direct Contact & CTA Button */}
-          <div className="hidden lg:flex items-center gap-2.5 flex-shrink-0">
+          {/* Desktop Direct Call Button - Kept exclusively */}
+          <div className="hidden lg:flex items-center flex-shrink-0">
             <a
               href={`tel:${SITE_CONFIG.contact.phone}`}
-              className="flex items-center justify-center w-9 h-9 rounded-full text-[#1F4FA3] bg-[#5BB8F5]/10 hover:bg-[#1F4FA3] hover:text-white border border-[#1F4FA3]/15 transition-all duration-200 shadow-sm flex-shrink-0"
+              id="navbar-call-btn"
+              className="flex items-center gap-2 px-3.5 py-2 rounded-full text-[#1F4FA3] hover:text-white bg-[#5BB8F5]/10 hover:bg-[#1F4FA3] border border-[#1F4FA3]/20 transition-all duration-200 shadow-xs text-xs font-semibold flex-shrink-0 group"
               title={`Call official direct line: ${SITE_CONFIG.contact.phoneFormatted}`}
               aria-label={`Call official direct line: ${SITE_CONFIG.contact.phoneFormatted}`}
             >
-              <Phone className="w-4 h-4 flex-shrink-0" />
-            </a>
-
-            <a
-              href="#contact"
-              onClick={(e) => scrollToSection(e, '#contact')}
-              className="relative group overflow-hidden px-4 xl:px-5 py-2 xl:py-2.5 rounded-full bg-gradient-to-r from-[#0B1F4D] to-[#1F4FA3] text-white text-xs uppercase tracking-wider xl:tracking-[0.16em] font-medium shadow-[0_4px_15px_rgba(11,31,77,0.2)] hover:shadow-[0_6px_20px_rgba(31,79,163,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center gap-1.5 xl:gap-2 whitespace-nowrap flex-shrink-0"
-            >
-              <span className="whitespace-nowrap">Consult Now</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
+              <Phone className="w-3.5 h-3.5 flex-shrink-0 group-hover:rotate-12 transition-transform" />
+              <span className="tracking-wide">{SITE_CONFIG.contact.phoneFormatted}</span>
             </a>
           </div>
 

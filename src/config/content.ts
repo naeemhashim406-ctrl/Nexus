@@ -72,6 +72,23 @@ export interface FaqItem {
   category: 'visa' | 'booking' | 'process';
 }
 
+export interface HajjUmrahPackageItem {
+  id: string;
+  name: string;
+  category: 'umrah-vip' | 'umrah-economy' | 'hajj';
+  duration: string;
+  badge: string;
+  makkahHotel: string;
+  makkahDistance: string;
+  madinahHotel: string;
+  madinahDistance: string;
+  transport: string;
+  flight: string;
+  features: string[];
+  recommendedFor: string;
+  priceNote?: string;
+}
+
 export const SITE_CONFIG = {
   // -------------------------------------------------------------
   // BRAND IDENTITY
@@ -82,7 +99,7 @@ export const SITE_CONFIG = {
     subline: 'GLOBAL TRAVEL & VISA SOLUTIONS',
     established: 2014,
     description:
-      'Premier study visa consultancy, university admissions, overseas employment facilitation, tourist visas, and bespoke global travel solutions tailored to students, travelers, and professionals worldwide.',
+      'Premier study visa consultancy, university admissions, overseas employment facilitation, tourist visas, Hajj & Umrah pilgrimage packages, and bespoke global travel solutions tailored to students, travelers, pilgrims, and professionals worldwide.',
   },
 
   // -------------------------------------------------------------
@@ -100,7 +117,7 @@ export const SITE_CONFIG = {
     // WhatsApp clean number for api links (no spaces or plus)
     whatsappNumber: '923296015268',
     whatsappDefaultMessage:
-      'Hello NEXUS Team, I would like to book a free consultation for study visa, visit visa, or travel solutions.',
+      'Hello NEXUS Team, I would like to book a consultation for study visa, visit visa, Hajj & Umrah pilgrimage, or travel solutions.',
 
     // Physical office location
     address: 'Civic Center, Office No. 56, Main GT Road',
@@ -117,12 +134,12 @@ export const SITE_CONFIG = {
   navigation: [
     { label: 'Home', href: '#hero' },
     { label: 'Services', href: '#services' },
+    { label: 'Hajj & Umrah', href: '#hajj-umrah' },
     { label: 'Destinations', href: '#destinations' },
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Why NEXUS', href: '#why-us' },
     { label: 'Reviews', href: '#testimonials' },
     { label: 'FAQ', href: '#faq' },
-    { label: 'Contact', href: '#contact' },
   ],
 
   // -------------------------------------------------------------
@@ -156,9 +173,23 @@ export const SITE_CONFIG = {
   ] as StatItem[],
 
   // -------------------------------------------------------------
-  // CORE SERVICES (INCLUDING STUDY VISAS)
+  // CORE SERVICES (INCLUDING STUDY VISAS & HAJJ / UMRAH)
   // -------------------------------------------------------------
   services: [
+    {
+      id: 'hajj-umrah',
+      title: 'Hajj & Umrah Pilgrimage Packages',
+      shortDesc: 'Official Nusuk electronic Umrah visas, 5-star & economy hotels near Haram, high-speed Haramain bullet train, and VIP transport.',
+      fullDesc:
+        'Perform your sacred journey with absolute peace of mind. We provide authenticated electronic Umrah visas, verified 5-star Clock Tower and walkable family hotel bookings in Makkah and Madinah, direct Saudia / PIA flights, high-speed Haramain bullet train tickets, private luxury GMC transfers, and learned scholarly Ziyarat tours.',
+      features: [
+        'Ministry of Hajj & Umrah Nusuk Visa Issuance',
+        'Clock Tower (Fairmont/Swissôtel) & Haram Frontage Stays',
+        'Direct Flight Reservations & VIP Private / Group Transfers',
+      ],
+      icon: 'Moon',
+      badge: 'Spiritual Journey',
+    },
     {
       id: 'study-visas',
       title: 'Study Visas & Global Admissions',
@@ -233,9 +264,21 @@ export const SITE_CONFIG = {
   ] as ServiceItem[],
 
   // -------------------------------------------------------------
-  // 8 FEATURED DESTINATIONS (With Lat/Lng for 3D Globe Targeting)
+  // FEATURED DESTINATIONS (With Lat/Lng for 3D Globe Targeting)
   // -------------------------------------------------------------
   destinations: [
+    {
+      id: 'saudi-arabia',
+      name: 'Saudi Arabia (Hajj & Umrah)',
+      flag: '🇸🇦',
+      visaType: 'Umrah eVisa, Hajj Nusuk Permit & Tourist eVisa',
+      processingTime: '24 – 48 Hours (eVisa) / Seasonal Quota',
+      popularFor: 'Makkah Al-Mukarramah, Madinah Al-Munawwarah, Ziyarat Sacred Sites',
+      description: 'Sacred spiritual pilgrimage and premier Arabian gateway. Approved electronic Umrah visas, confirmed luxury stays facing Masjid al-Haram, Haramain high-speed train, and guided ziyarat tours.',
+      lat: 21.4225,
+      lng: 39.8262,
+      featuredRate: '100% Authorized',
+    },
     {
       id: 'uk',
       name: 'United Kingdom',
@@ -403,6 +446,18 @@ export const SITE_CONFIG = {
   // -------------------------------------------------------------
   testimonials: [
     {
+      id: 't-umrah',
+      author: 'Haji Muhammad Younas & Family',
+      role: 'Executive Umrah Pilgrims',
+      destination: 'Saudi Arabia (Makkah & Madinah)',
+      service: 'VIP 14-Day Customized Umrah Package',
+      rating: 5,
+      quote:
+        'NEXUS arranged a truly peaceful, spiritually uplifting pilgrimage for my elderly parents and me. Our rooms at the Fairmont Clock Tower in Makkah and Dar Al Taqwa in Madinah were mere steps from the Harams. Private GMC transport and scholar-led Ziyarats were flawless.',
+      date: 'Rajab 1446 / 2025',
+      avatarInitials: 'MY',
+    },
+    {
       id: 't1',
       author: 'Tariq Mehmood',
       role: 'Managing Director, Tech Ventures',
@@ -469,6 +524,13 @@ export const SITE_CONFIG = {
   // -------------------------------------------------------------
   faqs: [
     {
+      id: 'faq-hajj-umrah',
+      question: 'What Hajj & Umrah packages and visa services does NEXUS provide?',
+      answer:
+        'NEXUS is an authorized agency providing full-scope Hajj & Umrah services: instant Nusuk electronic Umrah visas, customized 5-Star VIP (Clock Tower front row) and budget-friendly family packages (300-500m walking distance to Haram), confirmed direct flights from Lahore/Sialkot/Islamabad, high-speed Haramain bullet train tickets, private GMC/bus transfers (Jeddah-Makkah-Madinah), and knowledgeable scholar-guided Ziyarat tours to historic sacred sites.',
+      category: 'visa',
+    },
+    {
       id: 'faq-study',
       question: 'What are the requirements for applying for a Study Visa (UK, Canada, Australia, USA, Europe)?',
       answer:
@@ -523,6 +585,8 @@ export const SITE_CONFIG = {
   // VISA TYPES DROPDOWN OPTIONS
   // -------------------------------------------------------------
   visaTypesList: [
+    'Hajj & Umrah Pilgrimage (VIP Executive / Family Package)',
+    'Saudi Tourist & Umrah eVisa',
     'Student / Study Visa (UK, Canada, Australia, USA, Europe)',
     'Tourist / Visit Visa',
     'Business / Conference Visa',
@@ -536,6 +600,7 @@ export const SITE_CONFIG = {
   // DESTINATIONS DROPDOWN OPTIONS
   // -------------------------------------------------------------
   destinationsList: [
+    'Saudi Arabia (Makkah & Madinah / Umrah & Hajj)',
     'United Arab Emirates (Dubai)',
     'Turkey (eVisa / Sticker)',
     'United Kingdom (UK)',
@@ -544,7 +609,78 @@ export const SITE_CONFIG = {
     'United States (USA)',
     'Australia',
     'Malaysia',
-    'Saudi Arabia (Umrah & Business)',
     'Other Worldwide Destination',
   ],
+
+  // -------------------------------------------------------------
+  // HAJJ & UMRAH PILGRIMAGE PACKAGES (CUSTOM & CURATED)
+  // -------------------------------------------------------------
+  hajjUmrahPackages: [
+    {
+      id: 'pkg-vip-umrah',
+      name: 'Executive 5-Star Umrah',
+      category: 'umrah-vip',
+      duration: '10 – 14 Days (Customizable)',
+      badge: '5-Star Clock Tower VIP',
+      makkahHotel: 'Fairmont Makkah Clock Royal Tower / Swissôtel Al Maqam',
+      makkahDistance: '0 Meters (Direct Haram Courtyard Entrance)',
+      madinahHotel: 'The Oberoi Madinah / Dar Al Taqwa Hotel',
+      madinahDistance: 'Facing Bab Al Salam (Northern Courtyard)',
+      transport: 'Private GMC Yukon / VIP Mercedes Luxury Chauffeur',
+      flight: 'Saudia / PIA Business or Economy Direct Flights',
+      features: [
+        'Instant Nusuk Electronic Visa Issuance with Comprehensive Medical Cover',
+        'Haramain High-Speed Bullet Train Business Class Seats (Makkah ⇄ Madinah)',
+        'Exclusive Private Scholar-Led Ziyarat Tours (Ghar-e-Hira, Jabal-e-Noor, Quba)',
+        'Dedicated 24/7 Ground Concierge, Porterage & Luggage Handling Service',
+        'Complimentary Deluxe Umrah Kit, Travel Bag & 5L Zamzam Water Assistance',
+      ],
+      recommendedFor: 'Families, seniors, and executives desiring maximum convenience and instant Haram access.',
+      priceNote: 'Tailor-made customized dates for individual & family suites',
+    },
+    {
+      id: 'pkg-family-umrah',
+      name: 'Economy & Family Comfort Umrah',
+      category: 'umrah-economy',
+      duration: '15 – 21 Days',
+      badge: 'Best Family Value',
+      makkahHotel: 'Al Shohada Hotel / Le Méridien Towers Makkah',
+      makkahDistance: '350 – 500 Meters (or 24/7 Continuous AC Shuttle)',
+      madinahHotel: 'Pullman Zamzam Madinah / Grand Plaza Badr Al Maqam',
+      madinahDistance: '200 – 300 Meters to Prophet’s Mosque Courtyard',
+      transport: 'Modern Air-Conditioned Luxury Coasters / Buses',
+      flight: 'Confirmed Direct Flights via Lahore, Sialkot, or Islamabad',
+      features: [
+        '100% Guaranteed Umrah Visa Processing & Electronic Ministry Approval',
+        'Flexible Room Sharing: Double, Triple, and Quad Family Rooms',
+        'Complete Guided Ziyarat Tours in Makkah & Madinah (Mount Uhud, Masjid Quba)',
+        'Experienced Group Leader (Mutawwif) Accompanying From Gujranwala / Lahore',
+        'Pre-Departure Guidance & 24/7 Helpline in Saudi Arabia',
+      ],
+      recommendedFor: 'Budget-conscious families and groups seeking quality hotels within walking distance.',
+      priceNote: 'Available bi-weekly throughout the year and Ramadan',
+    },
+    {
+      id: 'pkg-hajj-guidance',
+      name: 'Hajj 1446/1447 Assistance & Maktab Allocation',
+      category: 'hajj',
+      duration: '28 – 35 Days (Shifting & Non-Shifting Options)',
+      badge: 'Official Hajj Guidance',
+      makkahHotel: 'Aziziyah Standard Building + Clock Tower 5-Star Hotel Options',
+      makkahDistance: 'Designated VIP European Tents in Mina & Arafat',
+      madinahHotel: 'Central Markaziyah 4/5-Star Stays',
+      madinahDistance: 'Walking distance to Masjid an-Nabawi',
+      transport: 'Mashair Holy Train & Dedicated Hajj Luxury Coaches',
+      flight: 'Official Hajj Scheduled Direct Flights (Saudia / PIA)',
+      features: [
+        'Complete Nusuk Masar Platform Registration & E-Wallet Funding Guidance',
+        'Air-Conditioned Mina European Tents with Sofa Beds & 3-Time Buffet Catering',
+        'Qurbani (Dam-e-Shukr) Coordination via Official Saudi Government Channels',
+        'Pre-Hajj Practical Training Seminars & Ihram Workshops at NEXUS Gujranwala',
+        'Dedicated Medical Team, Senior Scholars, and Urdu/Punjabi Speaking Guides',
+      ],
+      recommendedFor: 'Pilgrims intending to fulfill the obligation of Hajj with legal certainty and comfort.',
+      priceNote: 'Registration open for upcoming Ministry of Religious Affairs & Nusuk quota',
+    },
+  ] as HajjUmrahPackageItem[],
 };

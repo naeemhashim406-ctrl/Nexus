@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Compass, ShieldCheck, ChevronDown } from 'lucide-react';
+import { ArrowRight, Compass, ShieldCheck, ChevronDown, Moon, GraduationCap } from 'lucide-react';
 import { ThreeGlobe } from './ThreeGlobe';
 import { SITE_CONFIG } from '../config/content';
 import { EASE_LUXURY } from './ScrollReveal';
@@ -34,10 +34,19 @@ export const HeroSection: React.FC = () => {
             >
               <span className="w-2 h-2 rounded-full bg-[#1F4FA3] flex-shrink-0" />
               <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider sm:tracking-[0.2em] text-[#1F4FA3] whitespace-nowrap">
-                Global Study &amp; Travel Advisory
+                Study, Travel &amp; Hajj/Umrah Advisory
               </span>
               <span className="text-[#5B6B85] text-xs hidden xs:inline">|</span>
-              <span className="text-[10px] sm:text-[11px] font-medium text-[#5B6B85] hidden xs:inline whitespace-nowrap">2025/2026 Intakes Open</span>
+              <button
+                type="button"
+                id="hero-intake-badge-btn"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-study-abroad-modal'))}
+                className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-semibold text-[#1F4FA3] hover:text-[#0B1F4D] transition-colors cursor-pointer group"
+                title="View 2027-2028 Study Abroad Admissions Intake"
+              >
+                <GraduationCap className="w-3.5 h-3.5 text-[#1F4FA3] group-hover:scale-110 transition-transform" />
+                <span className="underline decoration-[#5BB8F5] underline-offset-2">Intake 2027–2028 Open</span>
+              </button>
             </motion.div>
 
             {/* Main Headline */}
@@ -60,7 +69,7 @@ export const HeroSection: React.FC = () => {
               transition={{ duration: 0.85, ease: EASE_LUXURY, delay: 0.35 }}
               className="text-sm sm:text-base lg:text-lg text-[#5B6B85] font-light leading-relaxed max-w-xl mb-8 break-words"
             >
-              Premier study visa consultation, global university admissions, official overseas work permits, tourist visas, and verified airfare holds. Based at Civic Center Gujranwala, we bridge the distance to world borders with zero margin for error.
+              Premier study visa consultation, global admissions, official work permits, tourist visas, and authorized Hajj &amp; Umrah pilgrimage packages. Based at Civic Center Gujranwala, we bridge the distance to world borders and sacred sanctuaries with zero margin for error.
             </motion.p>
 
             {/* Action Buttons */}
@@ -68,7 +77,7 @@ export const HeroSection: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: EASE_LUXURY, delay: 0.48 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto mb-10"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 w-full sm:w-auto mb-10"
             >
               <button
                 id="hero-book-consultation-btn"
@@ -80,12 +89,21 @@ export const HeroSection: React.FC = () => {
               </button>
 
               <button
+                id="hero-hajj-umrah-btn"
+                onClick={() => scrollTo('#hajj-umrah')}
+                className="px-5 sm:px-6 py-3.5 sm:py-4 rounded-full bg-white/95 hover:bg-white text-[#0B1F4D] border border-[#1F4FA3]/25 text-xs sm:text-sm uppercase tracking-wider sm:tracking-[0.18em] font-medium shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
+              >
+                <Moon className="w-4 h-4 text-[#1F4FA3] fill-[#1F4FA3]/20 flex-shrink-0" />
+                <span>Hajj &amp; Umrah</span>
+              </button>
+
+              <button
                 id="hero-explore-services-btn"
                 onClick={() => scrollTo('#services')}
-                className="px-6 sm:px-7 py-3.5 sm:py-4 rounded-full bg-white/80 hover:bg-white text-[#0B1F4D] border border-[#0B1F4D]/15 text-xs sm:text-sm uppercase tracking-wider sm:tracking-[0.18em] font-medium shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2.5"
+                className="px-5 sm:px-6 py-3.5 sm:py-4 rounded-full bg-white/60 hover:bg-white text-[#5B6B85] hover:text-[#0B1F4D] border border-[#0B1F4D]/10 text-xs sm:text-sm uppercase tracking-wider sm:tracking-[0.18em] font-medium shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
               >
                 <Compass className="w-4 h-4 text-[#1F4FA3] flex-shrink-0" />
-                <span>Explore Services</span>
+                <span>Services</span>
               </button>
             </motion.div>
 
