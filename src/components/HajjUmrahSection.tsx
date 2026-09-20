@@ -154,13 +154,13 @@ export const HajjUmrahSection: React.FC = () => {
         </StaggerContainer>
 
         {/* Package Filter Pills */}
-        <ScrollReveal variant="fadeUp" delay={0.2} className="flex justify-center mb-10">
-          <div className="inline-flex flex-wrap items-center justify-center gap-1.5 p-1.5 rounded-full bg-white border border-[#0B1F4D]/10 shadow-sm">
+        <ScrollReveal variant="fadeUp" delay={0.2} className="flex justify-center mb-10 px-2">
+          <div className="inline-flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-2xl sm:rounded-full bg-white border border-[#0B1F4D]/10 shadow-xs max-w-full">
             <button
               onClick={() => setActiveFilter('all')}
-              className={`px-4 py-2 rounded-full text-xs font-medium uppercase tracking-wider transition-all duration-200 ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-medium uppercase tracking-wider transition-all duration-200 ${
                 activeFilter === 'all'
-                  ? 'bg-gradient-to-r from-[#0B1F4D] to-[#1F4FA3] text-white shadow-sm'
+                  ? 'bg-gradient-to-r from-[#0B1F4D] to-[#1F4FA3] text-white shadow-xs'
                   : 'text-[#5B6B85] hover:text-[#0B1F4D]'
               }`}
             >
@@ -168,20 +168,20 @@ export const HajjUmrahSection: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveFilter('umrah-vip')}
-              className={`px-4 py-2 rounded-full text-xs font-medium uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5 ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-medium uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5 ${
                 activeFilter === 'umrah-vip'
-                  ? 'bg-gradient-to-r from-[#0B1F4D] to-[#1F4FA3] text-white shadow-sm'
+                  ? 'bg-gradient-to-r from-[#0B1F4D] to-[#1F4FA3] text-white shadow-xs'
                   : 'text-[#5B6B85] hover:text-[#0B1F4D]'
               }`}
             >
-              <Sparkles className="w-3 h-3 text-[#D4AF37]" />
+              <Sparkles className="w-3 h-3 text-[#D4AF37] flex-shrink-0" />
               <span>5-Star VIP Umrah</span>
             </button>
             <button
               onClick={() => setActiveFilter('umrah-economy')}
-              className={`px-4 py-2 rounded-full text-xs font-medium uppercase tracking-wider transition-all duration-200 ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-medium uppercase tracking-wider transition-all duration-200 ${
                 activeFilter === 'umrah-economy'
-                  ? 'bg-gradient-to-r from-[#0B1F4D] to-[#1F4FA3] text-white shadow-sm'
+                  ? 'bg-gradient-to-r from-[#0B1F4D] to-[#1F4FA3] text-white shadow-xs'
                   : 'text-[#5B6B85] hover:text-[#0B1F4D]'
               }`}
             >
@@ -189,19 +189,19 @@ export const HajjUmrahSection: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveFilter('hajj')}
-              className={`px-4 py-2 rounded-full text-xs font-medium uppercase tracking-wider transition-all duration-200 ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-medium uppercase tracking-wider transition-all duration-200 ${
                 activeFilter === 'hajj'
-                  ? 'bg-gradient-to-r from-[#0B1F4D] to-[#1F4FA3] text-white shadow-sm'
+                  ? 'bg-gradient-to-r from-[#0B1F4D] to-[#1F4FA3] text-white shadow-xs'
                   : 'text-[#5B6B85] hover:text-[#0B1F4D]'
               }`}
             >
-              Hajj 1446/1447 Quota
+              Hajj Quota
             </button>
           </div>
         </ScrollReveal>
 
         {/* Package Cards Grid with 3D Spotlight Tilt */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
           {filteredPackages.map((pkg, idx) => (
             <ScrollReveal
               key={pkg.id}
@@ -210,116 +210,116 @@ export const HajjUmrahSection: React.FC = () => {
               className="h-full flex"
             >
               <InteractiveCard
-                tiltAngle={5}
+                tiltAngle={4}
                 enableSpotlight={true}
-                className="w-full flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-white border border-[#0B1F4D]/10 shadow-[0_8px_30px_rgba(11,31,77,0.04)] hover:shadow-[0_16px_40px_rgba(11,31,77,0.08)] hover:border-[#1F4FA3]/30 transition-all duration-300 relative overflow-hidden"
+                className="w-full flex flex-col justify-between p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[#0B1F4D]/10 shadow-[0_8px_30px_rgba(11,31,77,0.04)] hover:shadow-[0_16px_40px_rgba(11,31,77,0.08)] hover:border-[#1F4FA3]/30 transition-all duration-300 relative overflow-hidden"
               >
                 {/* Decorative header badge */}
-                <div className="flex items-center justify-between gap-3 mb-5">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide bg-[#1F4FA3]/10 text-[#1F4FA3] border border-[#1F4FA3]/20">
-                    <Moon className="w-3 h-3 fill-[#1F4FA3]/30" />
-                    {pkg.badge}
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-4 sm:mb-5">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-semibold tracking-wide bg-[#1F4FA3]/10 text-[#1F4FA3] border border-[#1F4FA3]/20 max-w-full">
+                    <Moon className="w-3 h-3 fill-[#1F4FA3]/30 flex-shrink-0" />
+                    <span className="break-words">{pkg.badge}</span>
                   </span>
-                  <span className="text-xs font-medium text-[#5B6B85] flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-[#1F4FA3]" />
-                    {pkg.duration}
+                  <span className="text-[11px] sm:text-xs font-medium text-[#5B6B85] flex items-center gap-1 flex-shrink-0">
+                    <Clock className="w-3.5 h-3.5 text-[#1F4FA3] flex-shrink-0" />
+                    <span>{pkg.duration}</span>
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-serif text-2xl font-light text-[#0B1F4D] mb-3">
+                <h3 className="font-serif text-xl sm:text-2xl font-light text-[#0B1F4D] mb-3 leading-snug break-words">
                   {pkg.name}
                 </h3>
 
                 {/* Hotel & Location Proximity */}
-                <div className="p-4 rounded-2xl bg-[#F8FAFD] border border-[#0B1F4D]/6 space-y-3 mb-6">
+                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FAFD] border border-[#0B1F4D]/6 space-y-3 mb-5 sm:mb-6">
                   <div>
-                    <div className="flex items-center justify-between text-xs mb-1">
-                      <span className="font-semibold text-[#0B1F4D] flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-[#1F4FA3]" />
-                        Makkah Al-Mukarramah
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 mb-1">
+                      <span className="font-semibold text-xs text-[#0B1F4D] flex items-center gap-1.5 flex-shrink-0">
+                        <MapPin className="w-3.5 h-3.5 text-[#1F4FA3] flex-shrink-0" />
+                        <span>Makkah Al-Mukarramah</span>
                       </span>
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-medium">
+                      <span className="self-start sm:self-auto text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-medium leading-tight break-words">
                         {pkg.makkahDistance}
                       </span>
                     </div>
-                    <p className="text-xs text-[#5B6B85] font-medium pl-5">{pkg.makkahHotel}</p>
+                    <p className="text-xs text-[#5B6B85] font-medium pl-5 break-words leading-relaxed">{pkg.makkahHotel}</p>
                   </div>
 
-                  <div className="pt-2 border-t border-[#0B1F4D]/6">
-                    <div className="flex items-center justify-between text-xs mb-1">
-                      <span className="font-semibold text-[#0B1F4D] flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-[#1F4FA3]" />
-                        Madinah Al-Munawwarah
+                  <div className="pt-2.5 border-t border-[#0B1F4D]/6">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 mb-1">
+                      <span className="font-semibold text-xs text-[#0B1F4D] flex items-center gap-1.5 flex-shrink-0">
+                        <MapPin className="w-3.5 h-3.5 text-[#1F4FA3] flex-shrink-0" />
+                        <span>Madinah Al-Munawwarah</span>
                       </span>
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 font-medium">
+                      <span className="self-start sm:self-auto text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 font-medium leading-tight break-words">
                         {pkg.madinahDistance}
                       </span>
                     </div>
-                    <p className="text-xs text-[#5B6B85] font-medium pl-5">{pkg.madinahHotel}</p>
+                    <p className="text-xs text-[#5B6B85] font-medium pl-5 break-words leading-relaxed">{pkg.madinahHotel}</p>
                   </div>
                 </div>
 
                 {/* Transport & Flights Info */}
-                <div className="grid grid-cols-2 gap-3 text-xs mb-6 py-3 border-y border-[#0B1F4D]/8">
-                  <div className="flex items-start gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mb-5 sm:mb-6 py-3 border-y border-[#0B1F4D]/8">
+                  <div className="flex items-start gap-2 min-w-0">
                     <Car className="w-4 h-4 text-[#1F4FA3] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="block text-[10px] uppercase text-[#5B6B85] font-semibold">Transfers</span>
-                      <span className="text-[#0B1F4D] font-medium leading-tight block">{pkg.transport}</span>
+                    <div className="min-w-0">
+                      <span className="block text-[10px] uppercase text-[#5B6B85] font-semibold tracking-wider">Transfers</span>
+                      <span className="text-[#0B1F4D] font-medium text-xs leading-relaxed block break-words">{pkg.transport}</span>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2">
+                  <div className="flex items-start gap-2 min-w-0">
                     <Plane className="w-4 h-4 text-[#1F4FA3] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="block text-[10px] uppercase text-[#5B6B85] font-semibold">Flights</span>
-                      <span className="text-[#0B1F4D] font-medium leading-tight block">{pkg.flight}</span>
+                    <div className="min-w-0">
+                      <span className="block text-[10px] uppercase text-[#5B6B85] font-semibold tracking-wider">Flights</span>
+                      <span className="text-[#0B1F4D] font-medium text-xs leading-relaxed block break-words">{pkg.flight}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Key Features List */}
-                <div className="space-y-2.5 mb-6 flex-grow">
+                <div className="space-y-2 sm:space-y-2.5 mb-5 sm:mb-6 flex-grow">
                   <span className="block text-[11px] uppercase tracking-wider font-semibold text-[#0B1F4D] mb-2">
                     Package Inclusions
                   </span>
                   {pkg.features.map((feat, fIdx) => (
                     <div key={fIdx} className="flex items-start gap-2 text-xs text-[#5B6B85] leading-relaxed">
-                      <CheckCircle2 className="w-4 h-4 text-[#1F4FA3] flex-shrink-0 mt-0.5" />
-                      <span>{feat}</span>
+                      <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#1F4FA3] flex-shrink-0 mt-0.5" />
+                      <span className="break-words">{feat}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Recommended For & Pricing Note */}
-                <div className="mb-6 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-[#0B1F4D]">
-                  <span className="font-semibold block text-[11px] uppercase tracking-wider text-amber-900 mb-0.5">
+                <div className="mb-5 sm:mb-6 p-3 sm:p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-[#0B1F4D]">
+                  <span className="font-semibold block text-[10px] sm:text-[11px] uppercase tracking-wider text-amber-900 mb-0.5">
                     Recommended For
                   </span>
-                  <p className="text-[#5B6B85] leading-relaxed">{pkg.recommendedFor}</p>
+                  <p className="text-[#5B6B85] leading-relaxed break-words">{pkg.recommendedFor}</p>
                   {pkg.priceNote && (
-                    <p className="text-[11px] font-medium text-[#1F4FA3] mt-2 pt-2 border-t border-amber-500/15">
+                    <p className="text-[11px] font-medium text-[#1F4FA3] mt-2 pt-2 border-t border-amber-500/15 break-words leading-relaxed">
                       ★ {pkg.priceNote}
                     </p>
                   )}
                 </div>
 
                 {/* Action CTA Buttons */}
-                <div className="space-y-2.5 pt-2">
+                <div className="space-y-2 sm:space-y-2.5 pt-1 sm:pt-2">
                   <button
                     onClick={() => openWhatsAppPackage(pkg)}
-                    className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 shadow-sm hover:shadow-md hover:opacity-95 transition-all"
+                    className="w-full py-3 px-3.5 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 shadow-xs hover:shadow-md hover:opacity-95 transition-all active:scale-[0.99] min-h-[44px]"
                   >
                     <MessageCircle className="w-4 h-4 flex-shrink-0" />
-                    <span>Inquire via WhatsApp</span>
+                    <span className="break-words">Inquire via WhatsApp</span>
                   </button>
 
                   <button
                     onClick={() => scrollToContact(pkg.name)}
-                    className="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-[#F4F8FD] text-[#0B1F4D] border border-[#0B1F4D]/15 text-xs uppercase tracking-wider font-medium flex items-center justify-center gap-2 transition-colors"
+                    className="w-full py-2.5 px-3.5 rounded-xl bg-white hover:bg-[#F4F8FD] text-[#0B1F4D] border border-[#0B1F4D]/15 text-xs uppercase tracking-wider font-medium flex items-center justify-center gap-2 transition-colors active:scale-[0.99] min-h-[44px]"
                   >
-                    <span>Request Custom Itinerary</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#1F4FA3]" />
+                    <span className="break-words">Request Custom Itinerary</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#1F4FA3] flex-shrink-0" />
                   </button>
                 </div>
               </InteractiveCard>
@@ -329,78 +329,78 @@ export const HajjUmrahSection: React.FC = () => {
 
         {/* Sacred Ziyarat Highlights Banner */}
         <ScrollReveal variant="fadeUp" delay={0.3}>
-          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#0B1F4D] via-[#122B66] to-[#1F4FA3] text-white relative overflow-hidden shadow-xl mb-12">
+          <div className="p-5 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#0B1F4D] via-[#122B66] to-[#1F4FA3] text-white relative overflow-hidden shadow-xl mb-10 sm:mb-12">
             {/* Background geometric accents */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#5BB8F5]/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-[#D4AF37]/10 rounded-full blur-2xl pointer-events-none" />
 
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
               <div className="lg:col-span-5">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[#7CD0FF] text-[11px] font-semibold uppercase tracking-wider mb-3">
-                  <Compass className="w-3.5 h-3.5 text-[#5BB8F5]" />
-                  <span>Historical &amp; Sacred Sights</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[#7CD0FF] text-[11px] font-semibold uppercase tracking-wider mb-3 max-w-full">
+                  <Compass className="w-3.5 h-3.5 text-[#5BB8F5] flex-shrink-0" />
+                  <span className="truncate">Historical &amp; Sacred Sights</span>
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-light text-white mb-3">
+                <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-light text-white mb-3 break-words">
                   Comprehensive Scholar-Led Ziyarat Tours
                 </h3>
-                <p className="text-slate-300 text-xs sm:text-sm font-light leading-relaxed mb-6">
+                <p className="text-slate-300 text-xs sm:text-sm font-light leading-relaxed mb-5 sm:mb-6 break-words">
                   Every package includes organized visits to the sanctified locations where Islam took root. Accompanied by experienced scholars providing deep historical contexts and proper manners of visitation.
                 </p>
-                <div className="flex items-center gap-3 text-xs text-[#7CD0FF]">
+                <div className="flex items-center gap-2.5 text-xs text-[#7CD0FF]">
                   <HeartHandshake className="w-4 h-4 text-[#5BB8F5] flex-shrink-0" />
-                  <span>Personal mutawwif support for elderly and first-time pilgrims</span>
+                  <span className="break-words">Personal mutawwif support for elderly and first-time pilgrims</span>
                 </div>
               </div>
 
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                 {/* Makkah Ziyarat Sites */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
-                  <div className="flex items-center gap-2 text-[#5BB8F5] text-xs font-semibold uppercase tracking-wider mb-3">
-                    <MapPin className="w-3.5 h-3.5" />
-                    <span>Makkah Al-Mukarramah Ziyarat</span>
+                <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+                  <div className="flex items-center gap-2 text-[#5BB8F5] text-xs font-semibold uppercase tracking-wider mb-2.5 sm:mb-3">
+                    <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
+                    <span className="break-words">Makkah Al-Mukarramah Ziyarat</span>
                   </div>
                   <ul className="space-y-2 text-xs text-slate-200">
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#5BB8F5] mt-1.5 flex-shrink-0" />
-                      <span><strong>Jabal al-Noor &amp; Cave of Hira</strong> (First Revelation)</span>
+                      <span className="break-words"><strong>Jabal al-Noor &amp; Cave of Hira</strong> (First Revelation)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#5BB8F5] mt-1.5 flex-shrink-0" />
-                      <span><strong>Cave of Thawr</strong> (Sanctuary of Hijrah)</span>
+                      <span className="break-words"><strong>Cave of Thawr</strong> (Sanctuary of Hijrah)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#5BB8F5] mt-1.5 flex-shrink-0" />
-                      <span><strong>Mina, Arafat &amp; Muzdalifah</strong> (Holy Mashair Grounds)</span>
+                      <span className="break-words"><strong>Mina, Arafat &amp; Muzdalifah</strong> (Holy Mashair Grounds)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#5BB8F5] mt-1.5 flex-shrink-0" />
-                      <span><strong>Jabal ar-Rahmah</strong> (Mount of Mercy)</span>
+                      <span className="break-words"><strong>Jabal ar-Rahmah</strong> (Mount of Mercy)</span>
                     </li>
                   </ul>
                 </div>
 
                 {/* Madinah Ziyarat Sites */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
-                  <div className="flex items-center gap-2 text-[#7CD0FF] text-xs font-semibold uppercase tracking-wider mb-3">
-                    <MapPin className="w-3.5 h-3.5" />
-                    <span>Madinah Al-Munawwarah Ziyarat</span>
+                <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+                  <div className="flex items-center gap-2 text-[#7CD0FF] text-xs font-semibold uppercase tracking-wider mb-2.5 sm:mb-3">
+                    <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
+                    <span className="break-words">Madinah Al-Munawwarah Ziyarat</span>
                   </div>
                   <ul className="space-y-2 text-xs text-slate-200">
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#7CD0FF] mt-1.5 flex-shrink-0" />
-                      <span><strong>Masjid Quba</strong> (First Mosque of Islam, Reward of Umrah)</span>
+                      <span className="break-words"><strong>Masjid Quba</strong> (First Mosque of Islam, Reward of Umrah)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#7CD0FF] mt-1.5 flex-shrink-0" />
-                      <span><strong>Mount Uhud &amp; Martyrs’ Cemetery</strong> (Ghazwa-e-Uhud)</span>
+                      <span className="break-words"><strong>Mount Uhud &amp; Martyrs’ Cemetery</strong> (Ghazwa-e-Uhud)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#7CD0FF] mt-1.5 flex-shrink-0" />
-                      <span><strong>Masjid al-Qiblatayn</strong> (The Mosque of Two Qiblas)</span>
+                      <span className="break-words"><strong>Masjid al-Qiblatayn</strong> (The Mosque of Two Qiblas)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#7CD0FF] mt-1.5 flex-shrink-0" />
-                      <span><strong>The Seven Mosques (Saba Masajid)</strong> (Battle of the Trench)</span>
+                      <span className="break-words"><strong>The Seven Mosques (Saba Masajid)</strong> (Battle of Trench)</span>
                     </li>
                   </ul>
                 </div>
@@ -411,31 +411,31 @@ export const HajjUmrahSection: React.FC = () => {
 
         {/* Gujranwala Physical Office Assurance Strip */}
         <ScrollReveal variant="fadeUp" delay={0.35}>
-          <div className="p-6 rounded-2xl bg-white border border-[#0B1F4D]/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            <div className="flex items-center gap-3">
+          <div className="p-4 sm:p-6 rounded-2xl bg-white border border-[#0B1F4D]/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-xs">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 w-full sm:w-auto">
               <div className="w-10 h-10 rounded-full bg-[#1F4FA3]/10 flex items-center justify-center text-[#1F4FA3] flex-shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-[#0B1F4D]">
+                <h4 className="text-xs sm:text-sm font-semibold text-[#0B1F4D] break-words">
                   Visit NEXUS Gujranwala Office for Physical Pilgrimage Consultation
                 </h4>
-                <p className="text-xs text-[#5B6B85]">
+                <p className="text-xs text-[#5B6B85] break-words mt-0.5 leading-relaxed">
                   Civic Center, Office No. 56, Main GT Road, Gujranwala • Pre-Hajj Seminars, Biometrics &amp; Ihram Sessions
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 flex-shrink-0">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 flex-shrink-0 w-full sm:w-auto">
               <a
                 href={`tel:${SITE_CONFIG.contact.phone}`}
-                className="px-5 py-2.5 rounded-full bg-[#1F4FA3] hover:bg-[#0B1F4D] text-white text-xs uppercase tracking-wider font-semibold transition-colors"
+                className="px-4 sm:px-5 py-2.5 rounded-full bg-[#1F4FA3] hover:bg-[#0B1F4D] text-white text-xs uppercase tracking-wider font-semibold transition-colors text-center shadow-xs"
               >
                 Call {SITE_CONFIG.contact.phoneFormatted}
               </a>
               <button
                 onClick={() => scrollToContact()}
-                className="px-5 py-2.5 rounded-full border border-[#0B1F4D]/20 text-[#0B1F4D] hover:bg-slate-50 text-xs uppercase tracking-wider font-semibold transition-colors"
+                className="px-4 sm:px-5 py-2.5 rounded-full border border-[#0B1F4D]/20 text-[#0B1F4D] hover:bg-slate-50 text-xs uppercase tracking-wider font-semibold transition-colors text-center"
               >
                 Book In-Person Visit
               </button>
