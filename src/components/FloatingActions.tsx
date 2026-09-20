@@ -8,7 +8,8 @@ export const FloatingActions: React.FC = () => {
 
   useEffect(() => {
     const checkScroll = () => {
-      setShowBackToTop(window.scrollY > 400);
+      const shouldShow = window.scrollY > 400;
+      setShowBackToTop((prev) => (prev !== shouldShow ? shouldShow : prev));
     };
 
     window.addEventListener('scroll', checkScroll, { passive: true });

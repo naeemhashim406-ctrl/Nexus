@@ -27,9 +27,9 @@ export const HeroSection: React.FC = () => {
           <div className="lg:col-span-7 flex flex-col items-start z-10 w-full min-w-0">
             {/* Super-title badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 0.8, ease: EASE_LUXURY, delay: 0.1 }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: EASE_LUXURY, delay: 0.1 }}
               className="inline-flex flex-wrap sm:flex-nowrap items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/90 border border-[#1F4FA3]/15 shadow-[0_2px_10px_rgba(11,31,77,0.04)] mb-6 max-w-full"
             >
               <span className="w-2 h-2 rounded-full bg-[#1F4FA3] flex-shrink-0" />
@@ -51,9 +51,9 @@ export const HeroSection: React.FC = () => {
 
             {/* Main Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: 28, filter: 'blur(6px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 0.9, ease: EASE_LUXURY, delay: 0.22 }}
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: EASE_LUXURY, delay: 0.2 }}
               className="font-serif text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-light text-[#0B1F4D] tracking-tight leading-[1.12] sm:leading-[1.08] mb-6 break-words"
             >
               Your Journey. <br />
@@ -64,9 +64,9 @@ export const HeroSection: React.FC = () => {
 
             {/* Subline */}
             <motion.p
-              initial={{ opacity: 0, y: 24, filter: 'blur(4px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 0.85, ease: EASE_LUXURY, delay: 0.35 }}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, ease: EASE_LUXURY, delay: 0.3 }}
               className="text-sm sm:text-base lg:text-lg text-[#5B6B85] font-light leading-relaxed max-w-xl mb-8 break-words"
             >
               Premier study visa consultation, global admissions, official work permits, tourist visas, and authorized Hajj &amp; Umrah pilgrimage packages. Based at Civic Center Gujranwala, we bridge the distance to world borders and sacred sanctuaries with zero margin for error.
@@ -131,9 +131,9 @@ export const HeroSection: React.FC = () => {
 
           {/* Right 3D Interactive Globe Container with Silky Scale Reveal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.88, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 1.1, ease: EASE_LUXURY, delay: 0.3 }}
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.85, ease: EASE_LUXURY, delay: 0.25 }}
             className="lg:col-span-5 relative flex items-center justify-center w-full min-w-0"
           >
             <div className="w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[400px] lg:max-w-[460px] aspect-square relative flex items-center justify-center mx-auto">

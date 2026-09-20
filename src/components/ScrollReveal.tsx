@@ -29,33 +29,33 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     switch (variant) {
       case 'fadeUp':
         return {
-          initial: { opacity: 0, y: distance, filter: 'blur(4px)' },
-          animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
+          initial: { opacity: 0, y: distance },
+          animate: { opacity: 1, y: 0 },
         };
       case 'fadeDown':
         return {
-          initial: { opacity: 0, y: -distance, filter: 'blur(4px)' },
-          animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
+          initial: { opacity: 0, y: -distance },
+          animate: { opacity: 1, y: 0 },
         };
       case 'fadeLeft':
         return {
-          initial: { opacity: 0, x: distance, filter: 'blur(4px)' },
-          animate: { opacity: 1, x: 0, filter: 'blur(0px)' },
+          initial: { opacity: 0, x: distance },
+          animate: { opacity: 1, x: 0 },
         };
       case 'fadeRight':
         return {
-          initial: { opacity: 0, x: -distance, filter: 'blur(4px)' },
-          animate: { opacity: 1, x: 0, filter: 'blur(0px)' },
+          initial: { opacity: 0, x: -distance },
+          animate: { opacity: 1, x: 0 },
         };
       case 'fadeScale':
         return {
-          initial: { opacity: 0, scale: 0.92, filter: 'blur(6px)' },
-          animate: { opacity: 1, scale: 1, filter: 'blur(0px)' },
+          initial: { opacity: 0, scale: 0.94 },
+          animate: { opacity: 1, scale: 1 },
         };
       case 'blurIn':
         return {
-          initial: { opacity: 0, filter: 'blur(12px)', scale: 0.98 },
-          animate: { opacity: 1, filter: 'blur(0px)', scale: 1 },
+          initial: { opacity: 0, scale: 0.97 },
+          animate: { opacity: 1, scale: 1 },
         };
       default:
         return {
@@ -128,13 +128,12 @@ export const StaggerItem: React.FC<{
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: yOffset, filter: 'blur(4px)' },
+        hidden: { opacity: 0, y: yOffset },
         visible: {
           opacity: 1,
           y: 0,
-          filter: 'blur(0px)',
           transition: {
-            duration: 0.75,
+            duration: 0.65,
             ease: EASE_LUXURY,
           },
         },

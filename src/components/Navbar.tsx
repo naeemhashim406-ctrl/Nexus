@@ -13,7 +13,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const scrolled = window.scrollY > 20;
+      setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

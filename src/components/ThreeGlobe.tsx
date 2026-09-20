@@ -253,14 +253,15 @@ export const ThreeGlobe: React.FC<ThreeGlobeProps> = ({
     camera.position.z = size === 'hero' ? 7.4 : 6.4;
     cameraRef.current = camera;
 
-    // 3. Setup WebGL Renderer with capped pixel ratio (capped at 1.2 to prevent GPU fillrate lag)
+    // 3. Setup WebGL Renderer with performance-first pixel ratio
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
-      antialias: true,
+      antialias: !isMobile,
       powerPreference: 'high-performance',
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.2));
+    renderer.setPixelRatio(isMobile ? 1.0 : Math.min(window.devicePixelRatio || 1, 1.2));
     renderer.setClearColor(0x000000, 0);
     renderer.domElement.style.display = 'block';
     renderer.domElement.style.width = '100%';
@@ -296,8 +297,9 @@ export const ThreeGlobe: React.FC<ThreeGlobeProps> = ({
     const proceduralEarth = createProceduralEarthTexture();
     const proceduralClouds = createProceduralCloudsTexture();
 
-    // 6. ACTUAL EARTH MESH
-    const earthGeo = new THREE.SphereGeometry(globeRadius, 64, 64);
+    // 6. ACTUAL EARTH MESH - Adaptive segment count for buttery 60fps on mobile
+    const sphereSegments = isMobile ? 36 : 48;
+    const earthGeo = new THREE.SphereGeometry(globeRadius, sphereSegments, sphereSegments);
     const earthMat = new THREE.MeshPhongMaterial({
       map: proceduralEarth,
       specular: new THREE.Color(0x5bb8f5),
@@ -308,7 +310,7 @@ export const ThreeGlobe: React.FC<ThreeGlobeProps> = ({
     globeGroup.add(earthMesh);
 
     // 7. REALISTIC CLOUD LAYER
-    const cloudGeo = new THREE.SphereGeometry(globeRadius * 1.015, 64, 64);
+    const cloudGeo = new THREE.SphereGeometry(globeRadius * 1.015, sphereSegments, sphereSegments);
     const cloudMat = new THREE.MeshLambertMaterial({
       map: proceduralClouds,
       transparent: true,
@@ -525,9 +527,15 @@ export const ThreeGlobe: React.FC<ThreeGlobeProps> = ({
     });
     resizeObserver.observe(container);
 
+    const handleVisibilityChange = () => {
+      isVisibleRef.current = document.visibilityState === 'visible';
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
     return () => {
       observer.disconnect();
       resizeObserver.disconnect();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('resize', handleResize);
       if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
       if (renderer.domElement && renderer.domElement.parentNode) {
@@ -583,11 +591,12 @@ export const ThreeGlobe: React.FC<ThreeGlobeProps> = ({
     >
       <div
         ref={containerRef}
-        className="w-full h-full cursor-grab active:cursor-grabbing touch-none flex items-center justify-center overflow-visible"
+        className="w-full h-full cursor-grab active:cursor-grabbing touch-pan-y flex items-center justify-center overflow-visible"
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerLeave={handlePointerUp}
+        onPointerCancel={handlePointerUp}
         title={interactive ? 'Drag to rotate Earth' : undefined}
       />
 

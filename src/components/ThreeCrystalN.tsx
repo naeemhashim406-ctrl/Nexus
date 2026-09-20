@@ -39,13 +39,14 @@ export const ThreeCrystalN: React.FC<ThreeCrystalNProps> = ({ className = '' }) 
     camera.position.set(0, 0, 8.5);
 
     // 2. Renderer with performance-optimized pixel ratio
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
-      antialias: true,
+      antialias: !isMobile,
       powerPreference: 'high-performance',
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
+    renderer.setPixelRatio(isMobile ? 1.0 : Math.min(window.devicePixelRatio || 1, 1.2));
     renderer.setClearColor(0x000000, 0);
     container.innerHTML = '';
     container.appendChild(renderer.domElement);
@@ -82,17 +83,17 @@ export const ThreeCrystalN: React.FC<ThreeCrystalNProps> = ({ className = '' }) 
       reflectivity: 0.9,
     });
 
-    // Material 2: Sky-to-Royal glowing sapphire facet
+    // Material 2: Sky-to-Royal glowing sapphire facet (optimized without transmission pass)
     const facetCrystalMat = new THREE.MeshPhysicalMaterial({
       color: 0x2e82de,
       emissive: 0x0e326e,
-      roughness: 0.08,
-      metalness: 0.3,
-      transmission: 0.35,
-      ior: 1.52,
-      reflectivity: 1.0,
-      clearcoat: 1.0,
-      clearcoatRoughness: 0.05,
+      roughness: 0.12,
+      metalness: 0.35,
+      transparent: true,
+      opacity: 0.92,
+      reflectivity: 0.9,
+      clearcoat: 0.8,
+      clearcoatRoughness: 0.1,
     });
 
     // Left Bar
@@ -149,8 +150,8 @@ export const ThreeCrystalN: React.FC<ThreeCrystalNProps> = ({ className = '' }) 
     jewelBottom.position.set(1.45, -1.9, 0.45);
     crystalGroup.add(jewelBottom);
 
-    // Subtle floating orbit rings
-    const orbitGeo = new THREE.TorusGeometry(2.8, 0.018, 16, 100);
+    // Subtle floating orbit rings (optimized geometry)
+    const orbitGeo = new THREE.TorusGeometry(2.8, 0.018, 12, 40);
     const orbitMat = new THREE.MeshBasicMaterial({
       color: 0x5bb8f5,
       transparent: true,
@@ -168,6 +169,11 @@ export const ThreeCrystalN: React.FC<ThreeCrystalNProps> = ({ className = '' }) 
       { threshold: 0.05 }
     );
     observer.observe(container);
+
+    const handleVisibilityChange = () => {
+      isVisibleRef.current = document.visibilityState === 'visible';
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     // 6. Animation loop
     const animate = (time: number) => {
@@ -210,6 +216,7 @@ export const ThreeCrystalN: React.FC<ThreeCrystalNProps> = ({ className = '' }) 
 
     return () => {
       observer.disconnect();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('resize', handleResize);
       if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
       if (renderer.domElement && renderer.domElement.parentNode) {

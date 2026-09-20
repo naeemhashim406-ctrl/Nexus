@@ -119,8 +119,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         initial={{ opacity: 1, scale: 1 }}
         animate={{
           opacity: isExiting ? 0 : 1,
-          scale: isExiting ? 1.08 : 1,
-          filter: isExiting ? 'blur(8px)' : 'blur(0px)',
+          scale: isExiting ? 1.05 : 1,
         }}
         transition={{ duration: 0.6, ease: LUXURY_EASE }}
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
